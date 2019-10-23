@@ -4,13 +4,13 @@
 
 ### Model/SpreadSheet
 Fields:
-- Contains a 2D array of Cells
+- Contains a 2D arraylist of Cells
 
 Public Methods:
-- list<Cell> getRegionCells(Coord, Coord) -> returns a list of cells in a given area between the two cells
-- void updateCell(Coord, String) -> updates the given Cell with the string
 - Cell getCell(Coord) -> returns a cell given its coordinates
 - Coord getCoord(Cell) -> returns the coordinate of a cell
+- list(Cells) getRegionCells(Coord, Coord) -> returns a list of cells in a given area between the two cells
+- void updateCell(Coord, String) -> updates the given Cell with the string
 
 Private Methods:
 - Cell createNewCell(Coord) -> creates a new cell at the coordinate if the user hasn't tried to access it before and we haven't made it yet
@@ -20,7 +20,7 @@ Fields
 - Content (Sexpression, a list of Sexpressions is also an Sexpression)
         
 Public method
-- Sexp evaluateCell() -> evaluates the cell using visitor objects (can we pull this into the model?)
+- String evaluateCell() -> evaluates the cell using visitor objects (can we pull this into the model?)
 
 ### Sexp
 Can be one of:
