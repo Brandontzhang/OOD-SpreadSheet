@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 
 public interface IWorkSheet {
+  // Returns the cell given the coordinates
+  ICell getCell(Coord c);
+
   // Returns the coordinate of the input cell
   Coord getCoord(ICell c);
 

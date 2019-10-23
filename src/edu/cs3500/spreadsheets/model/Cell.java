@@ -8,14 +8,19 @@ public class Cell implements ICell {
   // if they want to see what is in the cell, they should call evaluate cell
   private Sexp content;
 
-  // this will also probably need to become private..
+  // constructors will probably need to become private..
+  public Cell() {
+    // representing a blank cell
+    this.content = null;
+  }
   public Cell(String content) {
     Parser cellParser = new Parser();
     this.content = cellParser.parse(content);
   }
 
   @Override
-  public Sexp evaluateCell() {
-    return null;
+  public String evaluateCell() {
+    // if the content isn't null, evaluate it, otherwise it is a blank cell so return ""
+    return (this.content != null) ? this.content.toString() : "";
   }
 }

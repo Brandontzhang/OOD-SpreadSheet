@@ -9,7 +9,7 @@ public class CellTest {
 
   @Test
   public void createCellTest() {
-    Cell c1 = new Cell("1");
-    System.out.println(c1.content);
+    Cell c1 = new Cell();
+    System.out.println(c1.evaluateCell());
   }
 }
