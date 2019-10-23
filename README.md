@@ -7,10 +7,10 @@ Fields:
 - Contains a 2D arraylist of Cells
 
 Public Methods:
-- Cell getCell(Coord) -> returns a cell given its coordinates
+- Cell getCell(String coordinate) -> returns a cell given its coordinates
 - Coord getCoord(Cell) -> returns the coordinate of a cell
-- list(Cells) getRegionCells(Coord, Coord) -> returns a list of cells in a given area between the two cells
-- void updateCell(Coord, String) -> updates the given Cell with the string
+- list(Cells) getRegionCells(String coordinate1, String coordinate2) -> returns a list of cells in a given area between the two cells
+- void updateCell(String coordinate, String content) -> updates the given Cell with the string
 
 Private Methods:
 - Cell createNewCell(Coord) -> creates a new cell at the coordinate if the user hasn't tried to access it before and we haven't made it yet
@@ -18,6 +18,9 @@ Private Methods:
 ### Cells
 Fields
 - Content (Sexpression, a list of Sexpressions is also an Sexpression)
+we could consider changing this to be the evaluated expression or also have two separate fields:
+- container holding inputs
+- outer most function call
         
 Public method
 - String evaluateCell() -> evaluates the cell using visitor objects (can we pull this into the model?)
