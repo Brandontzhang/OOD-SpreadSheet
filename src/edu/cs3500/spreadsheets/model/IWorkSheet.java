@@ -15,5 +15,5 @@ public interface IWorkSheet {
   ArrayList<ICell> getRegionCells(String c1, String c2) throws IllegalArgumentException;
 
   // update a cell
-  void updateCell(Coord c, Sexp s);
+  void updateCell(Coord c, String s);
 }

@@ -6,7 +6,7 @@ import edu.cs3500.spreadsheets.sexp.Sexp;
 public class Cell implements ICell {
   // content should be private, user should not be able to access the Sexp of the cell
   // if they want to see what is in the cell, they should call evaluate cell
-  private Sexp content;    /// not saving Sexp as Cell -> saving the evaluated expression
+  private Sexp content;    /// not saving Sexp as Cell -> saving the evaluated expression or saving an object that evaluates it?
 
   // constructors will probably need to become private..
   public Cell() {
@@ -16,6 +16,12 @@ public class Cell implements ICell {
   public Cell(String content) {
     Parser cellParser = new Parser();
     this.content = cellParser.parse(content);
+  }
+
+  @Override
+  public void updateCell(String s) {
+    Parser cellParser = new Parser();
+    this.content = cellParser.parse(s);
   }
 
   @Override
