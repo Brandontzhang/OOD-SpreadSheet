@@ -22,9 +22,9 @@ public class WorkSheet implements IWorkSheet {
     int row = c.row;
     int col = c.col;
     if (this.spreadSheet.get(row).get(col) == null) {
-      Cell newCell = new Cell();
-      this.spreadSheet.get(row).add(col, newCell);
-      return newCell;
+      Cell newEmptyCell = new Cell();
+      this.spreadSheet.get(row).add(col, newEmptyCell);
+      return newEmptyCell;
     } else {
       return this.spreadSheet.get(row).get(col);
     }
@@ -45,15 +45,20 @@ public class WorkSheet implements IWorkSheet {
 
   @Override
   public ArrayList<ICell> getRegionCells(ICell c1, ICell c2) {
+    // c1 should be before c2, if not throw an exception
     return null;
   }
 
   @Override
   public void updateCell(Coord c, Sexp s) {
-    // if there isn't a cell in this coordinate
-    // create a cell
+    // have to first check if the container is big enough, if it isn't need to reallocate into a
+    // larger array
     if (spreadSheet.get(c.col).get(c.row) == null) {
+      // if there isn't a cell in this coordinate
+      // create a cell
       this.createCell(new Coord(c.col, c.row), s);
+    } else {
+      // update the cell at this spot, need to decide if creating new one or changing the current
     }
 
   }
