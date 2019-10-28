@@ -1,4 +1,16 @@
 # OOD-SpreadSheet
+## TODO
+### Brandon
+- Convert all user access data types to strings
+- Figure out how to hold cell input
+        - evaluate cell in the spreadsheet vs evaluating the cell in the cell constructor
+        
+ ### Josh
+- expansion of spreadsheet arraylist
+        - new function to allocate arraylist cell (function increaseSize)
+- write tests
+  
+- first implementation of region cells
 
 ## Design
 
