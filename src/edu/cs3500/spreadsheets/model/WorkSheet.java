@@ -11,11 +11,15 @@ public class WorkSheet implements IWorkSheet {
   public WorkSheet(Readable rd) {
     // Insert data from readable into the spreadSheet
     // For now, just create a 2D array of cells
+
+    // for inputs out of bounds, make a loop from current size of spreadsheet up to input and insert
+    // null in them until we get to the cell
     this.spreadSheet = new ArrayList<>(10000);
   }
 
   @Override
-  public ICell getCell(String in) {
+  // should return a string holding the content
+  public String getCell(String in) {
     // Creating a coordinate to work with
     int row = this.getInputRow(in);
     int col = this.getInputColumn(in);
@@ -52,6 +56,11 @@ public class WorkSheet implements IWorkSheet {
     }
   }
 
+  // increasing the spreadsheet arraylist to size of input
+  private ArrayList<> increaseSize(int n) {
+
+  }
+
   // Given a string input referring to a cell, return the column (int form)
   private int getInputColumn(String s) {
     if (this.validCellAddress(s)) {
@@ -71,6 +80,7 @@ public class WorkSheet implements IWorkSheet {
     }
   }
 
+  // unecessary stuff, row is just a number
   // Given a string input referring to a cell, return the row (int form)
   private int getInputRow(String s) {
     if (this.validCellAddress(s)) {
@@ -90,9 +100,10 @@ public class WorkSheet implements IWorkSheet {
     }
   }
 
+  // might be useful as a private method
   // might need to hide this away, should users ever have access to the cell?
   @Override
-  public Coord getCoord(ICell c) {
+  private Coord getCoord(ICell c) {
     for (int i = 0; i < this.spreadSheet.size(); i++) {
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         if (c.equals(this.spreadSheet.get(i).get(j))) {
@@ -143,7 +154,7 @@ public class WorkSheet implements IWorkSheet {
   }
 
   @Override
-  public void updateCell(Coord c, String s) {
+  public void updateCell(String c, String s) {
     // have to first check if the container is big enough, if it isn't need to reallocate into a
     // larger array since array lists only resize when appending onto the list is larger, not when
     // adding onto a random index much larger
@@ -169,11 +180,10 @@ public class WorkSheet implements IWorkSheet {
       cell = this.spreadSheet.get(c.col).get(c.row);
       cell.updateCell(s);
     }
-
   }
 
   // Create a cell and add it to the appropriate spot
-  private void createCell(Coord c, String s) {
+  private void createCell(String c, String s) {
     ICell newCell = new Cell(s);
     this.spreadSheet.get(c.col).add(c.row, newCell);
   }
