@@ -51,7 +51,7 @@ public class Cell implements ICell {
   }
 
   // evaluate a cell
-  private String evaluateInput(Sexp s){
+  private static String evaluateInput(Sexp s){
     Stack<String> evaluateStack = new Stack<>();
     if (s instanceof SNumber) {
       return (String) s.accept(new ProcessSNum());
@@ -62,7 +62,7 @@ public class Cell implements ICell {
     } else if (s instanceof SBoolean) {
       return (String) s.accept(new ProcessSBoolean());
     } else if (s instanceof SList) {
-      return (String) s.accept(new ProcessSList());
+      return "" + s.accept(new ProcessSList());
     } else {
       return "";
     }
