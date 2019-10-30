@@ -24,7 +24,6 @@ public class WorkSheetTest {
   @Test
   public void creationTest() {
     WorkSheet test = new WorkSheet();
-    test.getCell("B1");
   }
 
   @Test
@@ -49,5 +48,37 @@ public class WorkSheetTest {
   public void testValidAddress4() {
     boolean t = WorkSheet.validCellAddress("AAAA1111");
     assertTrue(t);
+  }
+
+  @Test
+  public void updateCellTest() {
+    WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("B1"));
+    test.updateCell("B1", "(SUB 2 1)");
+    assertEquals("1.0", test.getCell("B1"));
+    test.updateCell("B2", "2");
+    assertEquals("2.0", test.getCell("B2"));
+    assertEquals("1.0", test.getCell("B1"));
+    assertEquals("", test.getCell("A1"));
+  }
+
+  @Test
+  public void accessCellTest() {
+    WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("A1"));
+  }
+
+  @Test
+  public void accessCellTest2() {
+    WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("D3"));
+  }
+
+  @Test
+  public void accessCellTest3() {
+    // checking what happens when a call is made out of bounds
+    WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("A10"));
+    //test.updateCell("A10", "(SUB 2 1)");
   }
 }
