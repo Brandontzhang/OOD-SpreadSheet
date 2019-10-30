@@ -37,12 +37,46 @@ public class ProcessSList implements SexpVisitor {
     for (int i = endList; i >= 0; i--) {
       switch(l.get(i).toString()) {
         case "PRODUCT":
+          // too few items in expression
+          if (trackStack.size() <= 1) {
+            throw new IllegalArgumentException("Incorrect number of inputs for expression");
+          }
+
+          double prod = 1;
+          // have to process everything within the stack
+          while (trackStack.size() > 0) {
+            // first item in expression
+            if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+              throw new IllegalArgumentException("Incorrect inputs for expression");
+            }
+            // removing item from stack
+            double item = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
+            prod *= item;
+          }
+          trackStack.push(prod);
           break;
         case "SUM":
+          // too few items in expression
+          if (trackStack.size() <= 1) {
+            throw new IllegalArgumentException("Incorrect number of inputs for expression");
+          }
+
+          double sum = 0;
+          // have to process everything within the stack
+          while (trackStack.size() > 0) {
+            // first item in expression
+            if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+              throw new IllegalArgumentException("Incorrect inputs for expression");
+            }
+            // removing item from stack
+            double item = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
+            sum += item;
+          }
+          trackStack.push(sum);
           break;
         case "SUB":
-          // too many items in expression
-          if (trackStack.size() > 2) {
+          // too many or too few items in expression
+          if (trackStack.size() != 2) {
             throw new IllegalArgumentException("Incorrect number of inputs for expression");
           }
 
@@ -64,7 +98,7 @@ public class ProcessSList implements SexpVisitor {
           trackStack.push(first - second);
           break;
         case "<":
-          if (trackStack.size() > 2) {
+          if (trackStack.size() != 2) {
             throw new IllegalArgumentException("Incorrect number of inputs for expression");
           }
 
@@ -86,6 +120,19 @@ public class ProcessSList implements SexpVisitor {
           trackStack.push(intOne < intTwo);
           break;
         case "APPEND":
+          // too few items in expression
+          if (trackStack.size() <= 1) {
+            throw new IllegalArgumentException("Incorrect number of inputs for expression");
+          }
+
+          String retstr = "";
+          // have to process everything within the stack
+          while (trackStack.size() > 0) {
+            // removing item from stack
+            String item = ((Sexp) trackStack.pop()).accept(new ProcessSList()).toString();
+            retstr = retstr + item;
+          }
+          trackStack.push(retstr);
           break;
         default:
           trackStack.push(l.get(i));

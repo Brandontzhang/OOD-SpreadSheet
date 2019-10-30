@@ -50,8 +50,16 @@ public class CellTest {
 
   @Test
   public void createCellTest4() {
+    // symbol
     Cell c1 = new Cell("Hello");
     assertEquals("Hello", c1.viewCell());
+  }
+
+  @Test
+  public void createCellTest5() {
+    // string
+    Cell c1 = new Cell("\"hi\"");
+    assertEquals("hi", c1.viewCell());
   }
 
   // Evaluating SUB operation cell tests -----------------------------------------------------------
@@ -130,6 +138,11 @@ public class CellTest {
     Cell c1 = new Cell("(SUB (SUB 10 9) (SUB 6.0 7.0 1.0))");
   }
 
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest14() {
+    Cell c1 = new Cell("(SUB 7)");
+  }
+
   // Evaluating < Cell Tests -----------------------------------------------------------------------
   @Test
   public void evaluateLessThanCellTest() {
@@ -147,6 +160,65 @@ public class CellTest {
   public void evaluateLessThanCellTest3() {
     Cell c1 = new Cell("(< 7 7)");
     assertEquals("false", c1.viewCell());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateLessThanCellTest4() {
+    Cell c1 = new Cell("(< 7 8 9)");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateLessThanCellTest5() {
+    Cell c1 = new Cell("(< 7)");
+  }
+
+  // Evaluating Product Cell Tests -----------------------------------------------------------------
+  @Test
+  public void evaluateProductCellTest() {
+    Cell c1 = new Cell("(PRODUCT 2 3)");
+    assertEquals("6.0", c1.viewCell());
+  }
+
+  @Test
+  public void evaluateProductCellTest2() {
+    Cell c1 = new Cell("(PRODUCT 2 3 2 3)");
+    assertEquals("36.0", c1.viewCell());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateProductCellTest3() {
+    Cell c1 = new Cell("(PRODUCT 7)");
+  }
+
+  // Evaluating Sum Cell Tests ---------------------------------------------------------------------
+  @Test
+  public void evaluateSumCellTest() {
+    Cell c1 = new Cell("(SUM 2 3)");
+    assertEquals("5.0", c1.viewCell());
+  }
+
+  @Test
+  public void evaluateSumCellTest2() {
+    Cell c1 = new Cell("(SUM 2 3 2 3)");
+    assertEquals("10.0", c1.viewCell());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSumCellTest3() {
+    Cell c1 = new Cell("(SUM 7)");
+  }
+
+  // Evaluating Append Cell Tests ------------------------------------------------------------------
+  @Test
+  public void evaluateAppendCellTest() {
+    Cell c1 = new Cell("(APPEND \"Hello \"  World)");
+    assertEquals("Hello World", c1.viewCell());
+  }
+
+  @Test
+  public void evaluateAppendCellTest2() {
+    Cell c1 = new Cell("(APPEND Answer (SUM 1 2))");
+    assertEquals("Answer3.0", c1.viewCell());
   }
 
   // Combination evaluation Cell Tests -------------------------------------------------------------

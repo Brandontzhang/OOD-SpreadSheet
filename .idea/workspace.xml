@@ -52,8 +52,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CellTest.evaluateCombinationCellTest2">
-    <configuration name="CellTest.evaluateCombinationCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CellTest.evaluateAppendCellTest2">
+    <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -63,13 +63,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateCombinationCellTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CellTest.evaluateAppendCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="evaluateAppendCellTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CellTest.evaluateCombinationCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.evaluateAppendCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -79,13 +94,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateCombinationCellTest2" />
+      <option name="METHOD_NAME" value="evaluateAppendCellTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CellTest.evaluateLessThanCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.evaluateProductCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -95,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateLessThanCellTest" />
+      <option name="METHOD_NAME" value="evaluateProductCellTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CellTest.evaluateLessThanCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.evaluateProductCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -111,23 +126,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateLessThanCellTest2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CellTest.evaluateLessThanCellTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw05" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateLessThanCellTest3" />
+      <option name="METHOD_NAME" value="evaluateProductCellTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CellTest.evaluateCombinationCellTest2" />
-        <item itemvalue="JUnit.CellTest.evaluateCombinationCellTest" />
-        <item itemvalue="JUnit.CellTest.evaluateLessThanCellTest3" />
-        <item itemvalue="JUnit.CellTest.evaluateLessThanCellTest2" />
-        <item itemvalue="JUnit.CellTest.evaluateLessThanCellTest" />
+        <item itemvalue="JUnit.CellTest.evaluateAppendCellTest2" />
+        <item itemvalue="JUnit.CellTest.evaluateAppendCellTest" />
+        <item itemvalue="JUnit.CellTest" />
+        <item itemvalue="JUnit.CellTest.evaluateProductCellTest2" />
+        <item itemvalue="JUnit.CellTest.evaluateProductCellTest" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +156,7 @@
       <workItem from="1571775567376" duration="7314000" />
       <workItem from="1571841795074" duration="6725000" />
       <workItem from="1572296178092" duration="1475000" />
-      <workItem from="1572382198160" duration="12512000" />
+      <workItem from="1572382198160" duration="13916000" />
     </task>
     <servers />
   </component>
