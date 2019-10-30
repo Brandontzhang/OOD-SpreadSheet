@@ -43,6 +43,29 @@ public class WorkSheet implements IWorkSheet {
   // increasing the spreadsheet arraylist to size of input
   private List<List<ICell>> increaseSize(int row, int col) {
     // when creating list, fill in with blank cells
+
+    //not sure which of these implementations would be better
+
+/*    for (int i = spreadSheet.size(); i < row; i++) {
+      for (int j = spreadSheet.get(i).size(); j < col; j++) {
+        // add blank cells to these coordinates which SHOULD only be the out of bounds ones
+        // that is unless i did this wrong
+      }
+    }*/
+
+    for (int i = 0; i < col; i++) {
+      for (int j = 0; j < row; j++) {
+        if(spreadSheet.get(i).get(j) == null) {
+          this.spreadSheet.get(i).add(new Cell());
+        }
+      }
+    }
+
+    //remove this eventually
+    if(spreadSheet.get(col).get(row) == null){
+      System.out.println("The increaseSize function is not working properly");
+    }
+
     return this.spreadSheet;
   }
 
