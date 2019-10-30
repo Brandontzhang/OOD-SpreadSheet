@@ -3,6 +3,7 @@ package edu.cs3500.spreadsheets.sexp.visitors;
 import java.util.List;
 import java.util.Stack;
 
+import edu.cs3500.spreadsheets.sexp.SBoolean;
 import edu.cs3500.spreadsheets.sexp.SList;
 import edu.cs3500.spreadsheets.sexp.SNumber;
 import edu.cs3500.spreadsheets.sexp.Sexp;
@@ -40,6 +41,12 @@ public class ProcessSList implements SexpVisitor {
         case "SUM":
           break;
         case "SUB":
+          // too many items in expression
+          if (trackStack.size() > 2) {
+            throw new IllegalArgumentException("Incorrect number of inputs for expression");
+          }
+
+          // first item in expression
           if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
@@ -52,9 +59,31 @@ public class ProcessSList implements SexpVisitor {
           }
           // removing second item from stack
           double second = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
+
+          // pushing answer onto the stack
           trackStack.push(first - second);
           break;
         case "<":
+          if (trackStack.size() > 2) {
+            throw new IllegalArgumentException("Incorrect number of inputs for expression");
+          }
+
+          // checking first item in expression is valid
+          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+            throw new IllegalArgumentException("Incorrect inputs for expression");
+          }
+          // removing first item from stack
+          double intOne = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
+
+          // checking second item in expression is valid
+          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+            throw new IllegalArgumentException("Incorrect inputs for expression");
+          }
+          // removing first item from stack
+          double intTwo = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
+
+          // pushing answer onto the stack
+          trackStack.push(intOne < intTwo);
           break;
         case "APPEND":
           break;
