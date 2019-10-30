@@ -3,6 +3,19 @@ package edu.cs3500.spreadsheets.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.cs3500.spreadsheets.sexp.Parser;
+import edu.cs3500.spreadsheets.sexp.SBoolean;
+import edu.cs3500.spreadsheets.sexp.SList;
+import edu.cs3500.spreadsheets.sexp.SNumber;
+import edu.cs3500.spreadsheets.sexp.SString;
+import edu.cs3500.spreadsheets.sexp.SSymbol;
+import edu.cs3500.spreadsheets.sexp.Sexp;
+import edu.cs3500.spreadsheets.sexp.visitors.ProcessSBoolean;
+import edu.cs3500.spreadsheets.sexp.visitors.ProcessSList;
+import edu.cs3500.spreadsheets.sexp.visitors.ProcessSNum;
+import edu.cs3500.spreadsheets.sexp.visitors.ProcessSString;
+import edu.cs3500.spreadsheets.sexp.visitors.ProcessSSymbol;
+
 public class WorkSheet implements IWorkSheet {
   // 2D arraylist of cells
   private List<List<ICell>> spreadSheet;
@@ -154,7 +167,9 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(coordinate.col, coordinate.row);
     }
 
-    this.spreadSheet.get(coordinate.col).get(coordinate.row).updateCell(s);
+    Parser cellParser = new Parser();
+    String update = this.evaluateInput(cellParser.parse(s));
+    this.spreadSheet.get(coordinate.col).get(coordinate.row).updateCell(update);
   }
 
   // method used to check that an input string is a valid cell address.
@@ -173,5 +188,22 @@ public class WorkSheet implements IWorkSheet {
       }
     }
     return true;
+  }
+
+  // evaluate a cell
+  private String evaluateInput(Sexp s){
+    if (s instanceof SNumber) {
+      return (String) s.accept(new ProcessSNum());
+    } else if (s instanceof SString) {
+      return (String) s.accept(new ProcessSString());
+    } else if (s instanceof SSymbol) {
+      return (String) s.accept(new ProcessSSymbol());
+    } else if (s instanceof SBoolean) {
+      return (String) s.accept(new ProcessSBoolean());
+    } else if (s instanceof SList) {
+      return "" + s.accept(new ProcessSList());
+    } else {
+      return "";
+    }
   }
 }

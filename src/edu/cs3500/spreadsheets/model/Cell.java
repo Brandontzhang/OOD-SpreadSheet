@@ -41,8 +41,9 @@ public class Cell implements ICell {
 
   @Override
   public void updateCell(String s) {
-    Parser cellParser = new Parser();
-    this.content = this.evaluateInput(cellParser.parse(s));
+    //Parser cellParser = new Parser();
+    //this.content = this.evaluateInput(cellParser.parse(s));
+    this.content = s;
   }
 
   @Override
