@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkSheetTest">
+  <component name="RunManager" selected="JUnit.WorkSheetTest.interCellTest">
     <configuration name="WorkSheetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
@@ -100,7 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.testValidAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetTest.interCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +108,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="testValidAddress" />
+      <option name="METHOD_NAME" value="interCellTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WorkSheetTest.interCellTest" />
         <item itemvalue="JUnit.WorkSheetTest" />
         <item itemvalue="JUnit.WorkSheetTest.accessCellTest2" />
         <item itemvalue="JUnit.WorkSheetTest.accessCellTest3" />
         <item itemvalue="JUnit.WorkSheetTest.updateCellTest" />
-        <item itemvalue="JUnit.WorkSheetTest.testValidAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +154,7 @@
       <workItem from="1571775567376" duration="7314000" />
       <workItem from="1571841795074" duration="6725000" />
       <workItem from="1572296178092" duration="1475000" />
-      <workItem from="1572382198160" duration="19159000" />
+      <workItem from="1572382198160" duration="19407000" />
     </task>
     <servers />
   </component>

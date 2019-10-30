@@ -77,8 +77,19 @@ public class WorkSheetTest {
   @Test
   public void accessCellTest3() {
     // checking what happens when a call is made out of bounds
+    // does not work
     WorkSheet test = new WorkSheet();
     assertEquals("", test.getCell("A10"));
     //test.updateCell("A10", "(SUB 2 1)");
+  }
+
+  //Test inter Cells interactions-------------------------------------------------------------------
+  @Test
+  public void interCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB 3 1)");
+    test.updateCell("A2", "(SUM 5 1)");
+    test.updateCell("B3", "(PRODUCT A1 A2)");
+    assertEquals("12", test.getCell("B3"));
   }
 }
