@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WorkSheet implements IWorkSheet {
   // 2D arraylist of cells
-  private List<List<ICell>> spreadSheet;
+  private List<List<ACell>> spreadSheet;
 
   // Might need to change constructor to private and use design patterns later on
   public WorkSheet(Readable rd) {
@@ -26,39 +26,27 @@ public class WorkSheet implements IWorkSheet {
     Coord c = new Coord(row, col);
 
     // Check if the coordinate is out of bounds for current array list
-    if (c.col > this.spreadSheet.size()) {
+    if (c.col > this.spreadSheet.size() || c.row > this.spreadSheet.get(c.col).size()) {
       // Column is out of bounds, create a larger array list
-      List<List<ICell>> tempSheet = new ArrayList<>(this.spreadSheet.size() * 2);
-      tempSheet.addAll(this.spreadSheet);
-      this.spreadSheet = tempSheet;
-
-      Cell newEmptyCell = new Cell();
-      this.spreadSheet.get(row).add(col, newEmptyCell);
-      return newEmptyCell;
-    } else if (c.row > this.spreadSheet.get(c.col).size()) {
-      // Row is out of bounds, create a larger array list at that spot
-      List<ICell> tempSheet = new ArrayList<>(this.spreadSheet.get(c.col).size() * 2);
-      tempSheet.addAll(this.spreadSheet.get(c.col));
-      this.spreadSheet.set(c.col, tempSheet);
-
-      Cell newEmptyCell = new Cell();
-      this.spreadSheet.get(row).add(col, newEmptyCell);
-      return newEmptyCell;
+      this.increaseSize(row, col);
     }
-    else if (this.spreadSheet.get(row).get(col) == null) {
-      // Column and row are in bound, but have not been accessed before
-      Cell newEmptyCell = new Cell();
-      this.spreadSheet.get(row).add(col, newEmptyCell);
-      return newEmptyCell;
-    } else {
-      // Column and row have been accessed and contain something
-      return this.spreadSheet.get(row).get(col);
-    }
+    // return content of cell
+    return this.spreadSheet.get(row).get(col).evaluateCell();
   }
 
   // increasing the spreadsheet arraylist to size of input
-  private ArrayList<> increaseSize(int n) {
+  private List<List<ACell>> increaseSize(int row, int col) {
+    // when creating list, fill in with blank cells
+    return this.spreadSheet;
+  }
 
+  // Create a cell and add it to the appropriate spot, might not need
+  private void createCell(String c, String s) {
+    int row = this.getInputRow(c);
+    int col = this.getInputColumn(c);
+    Coord coordinate = new Coord(row, col);
+    ACell newCell = new Cell(s);
+    this.spreadSheet.get(coordinate.col).add(coordinate.row, newCell);
   }
 
   // Given a string input referring to a cell, return the column (int form)
@@ -102,8 +90,7 @@ public class WorkSheet implements IWorkSheet {
 
   // might be useful as a private method
   // might need to hide this away, should users ever have access to the cell?
-  @Override
-  private Coord getCoord(ICell c) {
+  private Coord getCoord(ACell c) {
     for (int i = 0; i < this.spreadSheet.size(); i++) {
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         if (c.equals(this.spreadSheet.get(i).get(j))) {
@@ -115,7 +102,7 @@ public class WorkSheet implements IWorkSheet {
   }
 
   @Override
-  public ArrayList<ICell> getRegionCells(String c1, String c2) {
+  public ArrayList<String> getRegionCells(String c1, String c2) {
     // Check that c1 and c2 are both Strings inputs in the format <letters, number>
     if (!this.validCellAddress(c1) || !this.validCellAddress(c2)) {
       throw new IllegalArgumentException("Invalid input strings for cells");
@@ -158,33 +145,16 @@ public class WorkSheet implements IWorkSheet {
     // have to first check if the container is big enough, if it isn't need to reallocate into a
     // larger array since array lists only resize when appending onto the list is larger, not when
     // adding onto a random index much larger
-    if (c.col > this.spreadSheet.size()) {
-      List<List<ICell>> tempSheet = new ArrayList<>(this.spreadSheet.size() * 2);
-      tempSheet.addAll(this.spreadSheet);
-      this.spreadSheet = tempSheet;
+    int row = this.getInputRow(c);
+    int col = this.getInputColumn(c);
+    Coord coordinate = new Coord(row, col);
+
+    if (coordinate.col > this.spreadSheet.size()
+            || coordinate.row > this.spreadSheet.get(coordinate.col).size()) {
+      this.increaseSize(coordinate.col, coordinate.row);
     }
 
-    if (c.row > this.spreadSheet.get(c.col).size()) {
-      List<ICell> tempSheet = new ArrayList<>(this.spreadSheet.get(c.col).size() * 2);
-      tempSheet.addAll(this.spreadSheet.get(c.col));
-      this.spreadSheet.set(c.col, tempSheet);
-    }
-
-    if (spreadSheet.get(c.col).get(c.row) == null) {
-      // if there isn't a cell in this coordinate
-      // create a cell
-      this.createCell(new Coord(c.col, c.row), s);
-    } else {
-      // update the cell at this spot, need to decide if creating new one or changing the current
-      ICell cell;
-      cell = this.spreadSheet.get(c.col).get(c.row);
-      cell.updateCell(s);
-    }
-  }
-
-  // Create a cell and add it to the appropriate spot
-  private void createCell(String c, String s) {
-    ICell newCell = new Cell(s);
-    this.spreadSheet.get(c.col).add(c.row, newCell);
+    ACell cell = this.spreadSheet.get(coordinate.col).get(coordinate.row);
+    cell.updateCell(s);
   }
 }

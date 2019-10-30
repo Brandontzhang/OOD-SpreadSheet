@@ -3,30 +3,27 @@ package edu.cs3500.spreadsheets.model;
 import edu.cs3500.spreadsheets.sexp.Parser;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 
-public class Cell implements ICell {
+public class Cell extends ACell {
   // content should be private, user should not be able to access the Sexp of the cell
   // if they want to see what is in the cell, they should call evaluate cell
-  private String content;    /// not saving Sexp as Cell -> saving the evaluated expression or saving an object that evaluates it?
+  private String content;
 
   // constructors will probably need to become private..
   public Cell() {
     // representing a blank cell
-    this.content = null;
+    this.content = "";
   }
   public Cell(String content) {
-    Parser cellParser = new Parser();
-    this.content = cellParser.parse(content);
+    this.updateCell(content);
   }
 
   @Override
   public void updateCell(String s) {
-    Parser cellParser = new Parser();
-    this.content = cellParser.parse(s);
-  }
-
-  @Override
-  public String evaluateCell() {
-    // if the content isn't null, evaluate it, otherwise it is a blank cell so return ""
-    return (this.content != null) ? this.content.toString() : "";
+    if (content.equals("")) {
+      this.content = "";
+    } else {
+      Parser cellParser = new Parser();
+      this.content = cellParser.parse(content).toString();
+    }
   }
 }
