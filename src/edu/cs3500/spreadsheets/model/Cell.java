@@ -19,6 +19,8 @@ public class Cell implements ICell {
   // if they want to see what is in the cell, they should call evaluate cell
   private String content;
 
+  // have another list to track what other cells are holding?
+
   // constructors will probably need to become private..
   public Cell() {
     // representing a blank cell

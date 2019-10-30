@@ -8,20 +8,26 @@ public class WorkSheet implements IWorkSheet {
   private List<List<ICell>> spreadSheet;
 
   // Might need to change constructor to private and use design patterns later on
-  public WorkSheet(Readable rd) {
-    // Insert data from readable into the spreadSheet
-    // For now, just create a 2D array of cells
+  public WorkSheet() {
+    int initialSize = 10;
 
     // for inputs out of bounds, make a loop from current size of spreadsheet up to input and insert
     // null in them until we get to the cell
-    this.spreadSheet = new ArrayList<>(10000);
+    this.spreadSheet = new ArrayList<>(initialSize);
+
+    // setting initial spreadsheet to empty cells (100 x 100 cells)
+    for (int i = 0; i < initialSize; i++) {
+      this.spreadSheet.add(new ArrayList<ICell>(initialSize));
+      for (int j = 0; j < initialSize; j++)
+        this.spreadSheet.get(i).add(j, new Cell(0));
+    }
   }
 
   @Override
   // should return a string holding the content
   public String getCell(String in) {
     // Creating a coordinate to work with
-    int row = this.getInputRow(in);
+    int row = this.getInputRow(in) + 1;
     int col = this.getInputColumn(in);
     Coord c = new Coord(row, col);
 
@@ -77,7 +83,7 @@ public class WorkSheet implements IWorkSheet {
       for (int i = 0; i < s.length(); i++) {
         if (!Character.isLetter(s.charAt(i)) && !foundInt) {
           foundInt = true;
-        } else {
+        } else if (foundInt){
           retint = Integer.parseInt(s.substring(i));
           return retint;
         }
@@ -125,14 +131,14 @@ public class WorkSheet implements IWorkSheet {
   // method used to check that an input string is a valid cell address.
   // (Letters followed by numbers)
   // need to consider cases, A8, A100, A1000... BA1, ABA10, BABA100
-  private boolean validCellAddress(String s) {
+  public static boolean validCellAddress(String s) {
     boolean foundInt = false;
     // check for letters at the start of the string
     for (int position = 0; position < s.length(); position++) {
       if (!Character.isLetter(s.charAt(position)) && !foundInt) {
         // if the current char isn't a letter, start checking for numbers
         foundInt = true;
-      } else if (!Character.isDigit(s.charAt(position))) {
+      } else if (!Character.isDigit(s.charAt(position)) && foundInt) {
         // if letters aren't followed by only ints, return false
         return false;
       }
