@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WorkSheet implements IWorkSheet {
   // 2D arraylist of cells
-  private List<List<ACell>> spreadSheet;
+  private List<List<ICell>> spreadSheet;
 
   // Might need to change constructor to private and use design patterns later on
   public WorkSheet(Readable rd) {
@@ -31,11 +31,11 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(row, col);
     }
     // return content of cell
-    return this.spreadSheet.get(row).get(col).evaluateCell();
+    return this.spreadSheet.get(row).get(col).viewCell();
   }
 
   // increasing the spreadsheet arraylist to size of input
-  private List<List<ACell>> increaseSize(int row, int col) {
+  private List<List<ICell>> increaseSize(int row, int col) {
     // when creating list, fill in with blank cells
     return this.spreadSheet;
   }
@@ -45,7 +45,7 @@ public class WorkSheet implements IWorkSheet {
     int row = this.getInputRow(c);
     int col = this.getInputColumn(c);
     Coord coordinate = new Coord(row, col);
-    ACell newCell = new Cell(s);
+    ICell newCell = new Cell(s);
     this.spreadSheet.get(coordinate.col).add(coordinate.row, newCell);
   }
 
@@ -90,7 +90,7 @@ public class WorkSheet implements IWorkSheet {
 
   // might be useful as a private method
   // might need to hide this away, should users ever have access to the cell?
-  private Coord getCoord(ACell c) {
+  private Coord getCoord(ICell c) {
     for (int i = 0; i < this.spreadSheet.size(); i++) {
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         if (c.equals(this.spreadSheet.get(i).get(j))) {
@@ -154,7 +154,7 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(coordinate.col, coordinate.row);
     }
 
-    ACell cell = this.spreadSheet.get(coordinate.col).get(coordinate.row);
+    ICell cell = this.spreadSheet.get(coordinate.col).get(coordinate.row);
     cell.updateCell(s);
   }
 }
