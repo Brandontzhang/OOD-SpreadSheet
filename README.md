@@ -1,9 +1,9 @@
 # OOD-SpreadSheet
 ## TODO
 ### Brandon
-- Convert all user access data types to strings
-- Figure out how to hold cell input
-        - evaluate cell in the spreadsheet vs evaluating the cell in the cell constructor
+- for evaluating cells:
+        - getting information from other cells
+        - preventing infinite recursive calls
         
  ### Josh
 - expansion of spreadsheet arraylist
