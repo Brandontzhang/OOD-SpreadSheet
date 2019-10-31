@@ -1,20 +1,8 @@
 package edu.cs3500.spreadsheets.model;
 
-import java.util.Stack;
-
-import edu.cs3500.spreadsheets.sexp.Parser;
-import edu.cs3500.spreadsheets.sexp.SBoolean;
-import edu.cs3500.spreadsheets.sexp.SList;
-import edu.cs3500.spreadsheets.sexp.SNumber;
-import edu.cs3500.spreadsheets.sexp.SString;
-import edu.cs3500.spreadsheets.sexp.SSymbol;
-import edu.cs3500.spreadsheets.sexp.Sexp;
-import edu.cs3500.spreadsheets.sexp.visitors.ProcessSBoolean;
-import edu.cs3500.spreadsheets.sexp.visitors.ProcessSList;
-import edu.cs3500.spreadsheets.sexp.visitors.ProcessSNum;
-import edu.cs3500.spreadsheets.sexp.visitors.ProcessSString;
-import edu.cs3500.spreadsheets.sexp.visitors.ProcessSSymbol;
-
+/**
+ * Represents a cell in the worksheet.
+ */
 public class Cell implements ICell {
   // if they want to see what is in the cell, they should call evaluate cell
   private String content;

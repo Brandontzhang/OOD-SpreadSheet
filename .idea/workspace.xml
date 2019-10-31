@@ -2,11 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorksheetBuild.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Coord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Coord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Coord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" afterDir="false" />
     </list>
@@ -54,24 +74,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkSheetTest.evaluateCombinationCellTest2">
-    <configuration name="CellTest.evaluateSubCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.BeyondGood">
+    <configuration name="BeyondGood" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.cs3500.spreadsheets.BeyondGood" />
       <module name="hw05" />
+      <option name="PROGRAM_PARAMETERS" value="hello" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="PATTERN" value="edu.cs3500.spreadsheets.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="evaluateSubCellTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CellTest.recursiveCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -81,8 +99,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="recursiveCellTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,6 +115,22 @@
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkSheetTest.accessCellTest4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
+      <option name="METHOD_NAME" value="accessCellTest4" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -118,29 +151,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.evaluateSubCellTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw05" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="evaluateSubCellTest3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.BeyondGood" />
+      <item itemvalue="JUnit.CellTest" />
+      <item itemvalue="JUnit.WorkSheetTest" />
+      <item itemvalue="JUnit.WorkSheetTest.accessCellTest4" />
+      <item itemvalue="JUnit.WorkSheetTest.evaluateCombinationCellTest2" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WorkSheetTest.evaluateCombinationCellTest2" />
+        <item itemvalue="Application.BeyondGood" />
         <item itemvalue="JUnit.WorkSheetTest" />
-        <item itemvalue="JUnit.WorkSheetTest.evaluateSubCellTest3" />
-        <item itemvalue="JUnit.CellTest.evaluateSubCellTest" />
-        <item itemvalue="JUnit.CellTest.recursiveCellTest" />
+        <item itemvalue="JUnit.WorkSheetTest.accessCellTest4" />
+        <item itemvalue="JUnit.CellTest" />
+        <item itemvalue="JUnit.WorkSheetTest.evaluateCombinationCellTest2" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +184,7 @@
       <workItem from="1572296178092" duration="1475000" />
       <workItem from="1572382198160" duration="20570000" />
       <workItem from="1572524766518" duration="2454000" />
-      <workItem from="1572527804903" duration="3533000" />
+      <workItem from="1572527804903" duration="8348000" />
     </task>
     <servers />
   </component>
@@ -185,11 +209,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java</url>
-          <line>53</line>
+          <line>45</line>
           <properties class="cs3500.worksheet.WorkSheetTest" method="updateCellTest">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

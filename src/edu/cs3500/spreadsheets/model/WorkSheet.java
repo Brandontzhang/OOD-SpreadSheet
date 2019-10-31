@@ -17,13 +17,19 @@ import edu.cs3500.spreadsheets.sexp.visitors.ProcessSNum;
 import edu.cs3500.spreadsheets.sexp.visitors.ProcessSString;
 import edu.cs3500.spreadsheets.sexp.visitors.ProcessSSymbol;
 
+
+/**
+ * Worksheet class.
+ */
 public class WorkSheet implements IWorkSheet {
   // 2D arraylist of cells
   private List<List<ICell>> spreadSheet;
   private int spreadSheetSize = 10;
   private HashMap<String, Boolean> cyclicCheck;
 
-  // Might need to change constructor to private and use design patterns later on
+  /**
+   * Represents a worksheet.
+   */
   public WorkSheet() {
     // hashmap used to keep track of cyclic calls later
     cyclicCheck = new HashMap<>();
@@ -35,8 +41,9 @@ public class WorkSheet implements IWorkSheet {
     // setting initial spreadsheet to empty cells (100 x 100 cells)
     for (int i = 0; i < spreadSheetSize; i++) {
       this.spreadSheet.add(new ArrayList<>(spreadSheetSize));
-      for (int j = 0; j < spreadSheetSize; j++)
+      for (int j = 0; j < spreadSheetSize; j++) {
         this.spreadSheet.get(i).add(j, new Cell());
+      }
     }
   }
 
@@ -52,19 +59,20 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(row, col);
     }
     // return content of cell
-    System.out.println("value of cell " + col + row + " is: " + this.spreadSheet.get(col).get(row).viewCell());
+    System.out.println("value of cell " + col + row + " is: "
+            + this.spreadSheet.get(col).get(row).viewCell());
     return this.spreadSheet.get(col).get(row).viewCell();
   }
 
   // increasing the spreadsheet arraylist to size of input
   private List<List<ICell>> increaseSize(int row, int col) {
     int colSize = this.spreadSheet.size();
-    for(int i = 0; i <= col - colSize; i++){
+    for (int i = 0; i <= col - colSize; i++) {
       this.spreadSheet.add(new ArrayList<ICell>(this.spreadSheet.get(0).size()));
     }
-    for(int i = 0; i < this.spreadSheet.size(); i++){
+    for (int i = 0; i < this.spreadSheet.size(); i++) {
       int rowSize = this.spreadSheet.get(i).size();
-      for(int j = 0; j <= row - rowSize; j++){
+      for (int j = 0; j <= row - rowSize; j++) {
         this.spreadSheet.get(i).add(new Cell());
       }
     }
@@ -119,8 +127,8 @@ public class WorkSheet implements IWorkSheet {
     throw new IllegalArgumentException("Input cell does not exist");
   }
 
-  @Override  // private? might not even need this function
-  public ArrayList<String> getRegionCells(String c1, String c2) {
+  // private? might not even need this function
+  private ArrayList<String> getRegionCells(String c1, String c2) {
     // Check that c1 and c2 are both Strings inputs in the format <letters, number>
     if (!validCellAddress(c1) || !validCellAddress(c2)) {
       throw new IllegalArgumentException("Invalid input strings for cells");
@@ -135,7 +143,7 @@ public class WorkSheet implements IWorkSheet {
 
     // c1 should be before c2, if not throw an exception
     if (row1 > row2 || col1 > col2) {
-      throw new IllegalArgumentException("Invalid ordering of inputs. Order should be left to right, top to bottom");
+      throw new IllegalArgumentException("Invalid ordering of inputs");
     }
     return null;
   }
@@ -164,7 +172,7 @@ public class WorkSheet implements IWorkSheet {
   }
 
   // evaluate a cell
-  private String evaluateInput(Sexp s){
+  private String evaluateInput(Sexp s) {
     if (s instanceof SNumber) {
       return (String) s.accept(new ProcessSNum());
     } else if (s instanceof SString) {
@@ -193,9 +201,13 @@ public class WorkSheet implements IWorkSheet {
     }
   }
 
-  // method used to check that an input string is a valid cell address.
-  // (Letters followed by numbers)
-  // need to consider cases, A8, A100, A1000... BA1, ABA10, BABA100
+  /**
+   *  method used to check that an input string is a valid cell address.
+   *  (Letters followed by numbers)
+   *  need to consider cases, A8, A100, A1000... BA1, ABA10, BABA100
+   * @param s input String
+   * @return whether s is valid
+   */
   public static boolean validCellAddress(String s) {
     boolean foundInt = false;
     // check for letters at the start of the string

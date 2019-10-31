@@ -6,24 +6,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import edu.cs3500.spreadsheets.model.Cell;
 import edu.cs3500.spreadsheets.model.WorkSheet;
 
+/**
+ * Class for testing the worksheet.
+ */
 public class WorkSheetTest {
-  /** WorkSheet Tests
-   * Creation test
-   * - Not exactly sure how this will go yet
-   *
-   * Cell tests
-   * - user can access and see what cells evaluate to  (test getCell)
-   * - user can update cells                           (test updateCell)
-   * - user can get a list of cells                    (test getRegionCells)
-   *
-   */
-
   @Test
   public void creationTest() {
     WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("A1"));
   }
 
   @Test
@@ -77,12 +69,21 @@ public class WorkSheetTest {
   @Test
   public void accessCellTest3() {
     // checking what happens when a call is made out of bounds
-    // does not work
     WorkSheet test = new WorkSheet();
-    assertEquals("", test.getCell("Z9"));
-    test.updateCell("Z9", "(SUB 2 1)");
-    //assertEquals("1", test.getCell("Z50"));
-    //assertEquals("", test.getCell("Z49"));
+    assertEquals("", test.getCell("Z50"));
+    test.updateCell("Z50", "(SUB 2 1)");
+    assertEquals("1.0", test.getCell("Z50"));
+    assertEquals("", test.getCell("Z49"));
+  }
+
+  @Test
+  public void accessCellTest4() {
+    // checking what happens when a call is made out of bounds
+    WorkSheet test = new WorkSheet();
+    assertEquals("", test.getCell("AA50"));
+    test.updateCell("AA50", "(SUM 2 1)");
+    assertEquals("3.0", test.getCell("AA50"));
+    assertEquals("", test.getCell("AA49"));
   }
 
   //Test inter Cells interactions-------------------------------------------------------------------
@@ -91,8 +92,18 @@ public class WorkSheetTest {
     WorkSheet test = new WorkSheet();
     test.updateCell("A1", "(SUB 3 1)");
     test.updateCell("A2", "(SUM 5 1)");
-    test.updateCell("B3", "(PRODUCT A1 A2)");
+    test.updateCell("B3", "(PRODUCT A1 A2 1)");
     assertEquals("12", test.getCell("B3"));
+  }
+
+  @Test
+  public void interCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB 3 1)");
+    test.updateCell("A2", "(SUM 5 1)");
+    test.updateCell("A3", "2");
+    test.updateCell("B3", "(PRODUCT A1:A3)");
+    assertEquals("16", test.getCell("B3"));
   }
 
   // Evaluating SUB operation cell tests -----------------------------------------------------------

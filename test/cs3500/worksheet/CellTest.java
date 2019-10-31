@@ -1,26 +1,16 @@
 package cs3500.worksheet;
 
-import org.junit.Assert;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 import edu.cs3500.spreadsheets.model.Cell;
-import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.sexp.Parser;
 
+/**
+ * Class for testing cells.
+ */
 public class CellTest {
-  /** Tests to consider
-   * Creation tests
-   * - creating a cell with different Sexp
-   *    - Empty Cell
-   *    - SBoolean
-   *    - SNumber
-   *    - SString
-   *    - SList
-   * Evaluation tests
-   * - Check that cells holding different Sexp all evaluate correctly when calling evaluateCell
-   */
-
   @Test
   public void parserTest() {
     Parser cellParser = new Parser();
@@ -38,7 +28,7 @@ public class CellTest {
   @Test
   public void createCellTest2() {
     Cell c1 = new Cell(2);
-    assertEquals("2.0", c1.viewCell());
+    assertEquals("2", c1.viewCell());
   }
 
   @Test
@@ -60,6 +50,6 @@ public class CellTest {
   public void createCellTest5() {
     // string
     Cell c1 = new Cell("\"hi\"");
-    assertEquals("hi", c1.viewCell());
+    assertEquals("\"hi\"", c1.viewCell());
   }
 }

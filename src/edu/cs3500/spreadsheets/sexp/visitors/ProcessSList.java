@@ -3,12 +3,15 @@ package edu.cs3500.spreadsheets.sexp.visitors;
 import java.util.List;
 import java.util.Stack;
 
-import edu.cs3500.spreadsheets.sexp.SBoolean;
 import edu.cs3500.spreadsheets.sexp.SList;
 import edu.cs3500.spreadsheets.sexp.SNumber;
+import edu.cs3500.spreadsheets.sexp.SSymbol;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
+/**
+ * Visitor to SList.
+ */
 public class ProcessSList implements SexpVisitor {
   @Override
   public Object visitBoolean(boolean b) {
@@ -35,7 +38,7 @@ public class ProcessSList implements SexpVisitor {
     Stack<Object> trackStack = new Stack();
     int endList = l.size() - 1;
     for (int i = endList; i >= 0; i--) {
-      switch(l.get(i).toString()) {
+      switch (l.get(i).toString()) {
         case "PRODUCT":
           // too few items in expression
           if (trackStack.size() <= 1) {
@@ -45,8 +48,13 @@ public class ProcessSList implements SexpVisitor {
           double prod = 1;
           // have to process everything within the stack
           while (trackStack.size() > 0) {
+            if (trackStack.peek() instanceof SSymbol) {
+              throw new IllegalArgumentException("HELLO");
+            }
+
             // first item in expression
-            if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+            if ((!(trackStack.peek() instanceof SNumber))
+                    && (!(trackStack.peek() instanceof SList))) {
               throw new IllegalArgumentException("Incorrect inputs for expression");
             }
             // removing item from stack
@@ -65,7 +73,8 @@ public class ProcessSList implements SexpVisitor {
           // have to process everything within the stack
           while (trackStack.size() > 0) {
             // first item in expression
-            if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+            if ((!(trackStack.peek() instanceof SNumber))
+                    && (!(trackStack.peek() instanceof SList))) {
               throw new IllegalArgumentException("Incorrect inputs for expression");
             }
             // removing item from stack
@@ -81,14 +90,16 @@ public class ProcessSList implements SexpVisitor {
           }
 
           // first item in expression
-          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+          if ((!(trackStack.peek() instanceof SNumber))
+                  && (!(trackStack.peek() instanceof SList))) {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack
           double first = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
 
           // checking second item in stack is valid for SUB operation
-          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+          if ((!(trackStack.peek() instanceof SNumber))
+                  && (!(trackStack.peek() instanceof SList))) {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing second item from stack
@@ -103,14 +114,16 @@ public class ProcessSList implements SexpVisitor {
           }
 
           // checking first item in expression is valid
-          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+          if ((!(trackStack.peek() instanceof SNumber))
+                  && (!(trackStack.peek() instanceof SList))) {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack
           double intOne = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList());
 
           // checking second item in expression is valid
-          if ((!(trackStack.peek() instanceof SNumber)) && (!(trackStack.peek() instanceof SList))) {
+          if ((!(trackStack.peek() instanceof SNumber))
+                  && (!(trackStack.peek() instanceof SList))) {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack

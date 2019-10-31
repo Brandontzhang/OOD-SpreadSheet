@@ -4,6 +4,9 @@ import java.util.List;
 
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
+/**
+ * Visitor to Sbooleans.
+ */
 public class ProcessSBoolean implements SexpVisitor {
   @Override
   public Object visitBoolean(boolean b) {
