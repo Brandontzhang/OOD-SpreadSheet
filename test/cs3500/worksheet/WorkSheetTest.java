@@ -92,8 +92,8 @@ public class WorkSheetTest {
     WorkSheet test = new WorkSheet();
     test.updateCell("A1", "(SUB 3 1)");
     test.updateCell("A2", "(SUM 5 1)");
-    test.updateCell("B3", "(PRODUCT A1 A2 1)");
-    assertEquals("12", test.getCell("B3"));
+    test.updateCell("A3", "(PRODUCT A1 A2 1)");
+    assertEquals("12.0", test.getCell("A3"));
   }
 
   @Test
@@ -102,8 +102,44 @@ public class WorkSheetTest {
     test.updateCell("A1", "(SUB 3 1)");
     test.updateCell("A2", "(SUM 5 1)");
     test.updateCell("A3", "2");
-    test.updateCell("B3", "(PRODUCT A1:A3)");
-    assertEquals("16", test.getCell("B3"));
+    test.updateCell("A4", "(PRODUCT A1:A3)");
+    //assertEquals("24", test.getCell("B3"));
+  }
+
+  @Test
+  public void interCellTest3() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "A2");
+    test.updateCell("A2", "3");
+    assertEquals("3", test.getCell("A1"));
+  }
+
+  @Test
+  public void interCellTest4() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB 3 1)");
+    test.updateCell("A2", "(SUM 5 1)");
+    test.updateCell("A3", "(PRODUCT A1 A2 1)");
+    test.updateCell("A4", "(SUM A1 A2 A3)");
+    assertEquals("2.0", test.getCell("A1"));
+    assertEquals("6.0", test.getCell("A2"));
+    assertEquals("12.0", test.getCell("A3"));
+    assertEquals("20.0", test.getCell("A4"));
+  }
+
+  @Test
+  public void interCellTest5() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB 3 1)");
+    test.updateCell("A2", "(SUM 5 1)");
+    test.updateCell("A3", "(PRODUCT A1 A2 1)");
+    test.updateCell("A4", "(SUM A1 A2 A3)");
+    test.updateCell("A5", "(SUM A1:A4)");
+    assertEquals("2.0", test.getCell("A1"));
+    assertEquals("6.0", test.getCell("A2"));
+    assertEquals("12.0", test.getCell("A3"));
+    assertEquals("20.0", test.getCell("A4"));
+    assertEquals("40.0", test.getCell("A5"));
   }
 
   // Evaluating SUB operation cell tests -----------------------------------------------------------

@@ -59,8 +59,6 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(row, col);
     }
     // return content of cell
-    System.out.println("value of cell " + col + row + " is: "
-            + this.spreadSheet.get(col).get(row).viewCell());
     return this.spreadSheet.get(col).get(row).viewCell();
   }
 
@@ -195,7 +193,7 @@ public class WorkSheet implements IWorkSheet {
     } else if (s instanceof SBoolean) {
       return (String) s.accept(new ProcessSBoolean());
     } else if (s instanceof SList) {
-      return "" + s.accept(new ProcessSList());
+      return "" + s.accept(new ProcessSList(this.spreadSheet));
     } else {
       return "";
     }

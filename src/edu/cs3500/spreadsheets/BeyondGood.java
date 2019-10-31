@@ -14,13 +14,17 @@ public class BeyondGood {
     WorksheetBuild b1 = new WorksheetBuild();
     b1.createWorksheet();
 
+    // String formats
+    // first line -in filename -eval cell
+    // cell =(content)
+
     for (String s: args) {
       System.out.println(s);
       b1.createCell(1,2,"3");
     }
     /*
       TODO: For now, look in the args array to obtain a filename and a cell name,
-      - read the file and build a model from it, 
+      - read the file and build a model from it,
       - evaluate all the cells, and
       - report any errors, or print the evaluated value of the requested cell.
     */
