@@ -52,22 +52,4 @@ public class Cell implements ICell {
     String copy = content;
     return copy;
   }
-
-  // evaluate a cell
-  private String evaluateInput(Sexp s){
-    Stack<String> evaluateStack = new Stack<>();
-    if (s instanceof SNumber) {
-      return (String) s.accept(new ProcessSNum());
-    } else if (s instanceof SString) {
-      return (String) s.accept(new ProcessSString());
-    } else if (s instanceof SSymbol) {
-      return (String) s.accept(new ProcessSSymbol());
-    } else if (s instanceof SBoolean) {
-      return (String) s.accept(new ProcessSBoolean());
-    } else if (s instanceof SList) {
-      return "" + s.accept(new ProcessSList());
-    } else {
-      return "";
-    }
-  }
 }

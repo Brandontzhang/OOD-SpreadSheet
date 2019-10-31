@@ -94,4 +94,223 @@ public class WorkSheetTest {
     test.updateCell("B3", "(PRODUCT A1 A2)");
     assertEquals("12", test.getCell("B3"));
   }
+
+  // Evaluating SUB operation cell tests -----------------------------------------------------------
+  @Test
+  public void evaluateSubCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB 2 1)");
+    assertEquals("1.0", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateSubCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB 2.5 1.2)");
+    assertEquals("1.3", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateSubCellTest3() {
+    // + sub -
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 2.5 1.2) (SUB 5.0 7.0))");
+    assertEquals("3.3", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateSubCellTest4() {
+    // + sub +
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB 10 (SUB 8.0 7.0))");
+    assertEquals("9.0", test.getCell("C1"));
+
+  }
+
+  @Test
+  public void evaluateSubCellTest5() {
+    // - sub +
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 11) (SUB 8.0 7.0))");
+    assertEquals("-2.0", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateSubCellTest6() {
+    // - sub -
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 11) (SUB 6.0 7.0))");
+    assertEquals("0.0", test.getCell("C1"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest7() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 a) (SUB 6.0 7.0))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest8() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB a 9) (SUB 6.0 7.0))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest9() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 11) (SUB a 7.0))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest10() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 11) (SUB 6.0 a))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest11() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB 7 8 9)");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest12() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 9 11) (SUB 6.0 7.0))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest13() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB (SUB 10 11) (SUB 6.0 7.0 1.0))");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSubCellTest14() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUB 7.0)");
+  }
+
+  // Evaluating < Cell Tests -----------------------------------------------------------------------
+  @Test
+  public void evaluateLessThanCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 5 7)");
+    assertEquals("true", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateLessThanCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 7 5)");
+    assertEquals("false", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateLessThanCellTest3() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 7 7)");
+    assertEquals("false", test.getCell("C1"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateLessThanCellTest4() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 5 7 8)");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateLessThanCellTest5() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 5)");
+  }
+
+  // Evaluating Product Cell Tests -----------------------------------------------------------------
+  @Test
+  public void evaluateProductCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(PRODUCT 2 3)");
+    assertEquals("6.0", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateProductCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(PRODUCT 2 3 2 3)");
+    assertEquals("36.0", test.getCell("C1"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateProductCellTest3() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(PRODUCT 7)");
+  }
+
+  // Evaluating Sum Cell Tests ---------------------------------------------------------------------
+  @Test
+  public void evaluateSumCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUM 2 3)");
+    assertEquals("5.0", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateSumCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUM 2 3 2 3)");
+    assertEquals("10.0", test.getCell("C1"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void evaluateSumCellTest3() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(SUM 2)");
+  }
+
+  // Evaluating Append Cell Tests ------------------------------------------------------------------
+  @Test
+  public void evaluateAppendCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(APPEND \"Hello \"  World)");
+    assertEquals("Hello World", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateAppendCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(APPEND Answer (SUM 1 2))");
+    assertEquals("Answer3.0", test.getCell("C1"));
+  }
+
+  // Combination evaluation Cell Tests -------------------------------------------------------------
+  @Test
+  public void evaluateCombinationCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< (SUB 7.0 1.0) 10)");
+    assertEquals("true", test.getCell("C1"));
+  }
+
+  @Test
+  public void evaluateCombinationCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "(< 10 (SUB 7.0 1.0))");
+    assertEquals("false", test.getCell("C1"));
+  }
+
+  // Cyclic tests ----------------------------------------------------------------------------------
+  @Test
+  public void cyclicCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB (SUB 3 1) (SUB 4 1))");
+    assertEquals("-1.0", test.getCell("A1"));
+    test.updateCell("A2", "A1");
+    assertEquals("-1.0", test.getCell("A2"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void cyclicCellTest2() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "B1");
+    test.updateCell("B1", "A1");
+  }
 }
