@@ -19,7 +19,7 @@ Fields:
 - Contains a 2D arraylist of Cells
 
 Public Methods:
-- Cell getCell(String coordinate) -> returns a cell given its coordinates
+- Cell getCell(String coordinate) -> returns a cell given its coordinates ------ I think there was an issue in here where you had swapped where row and col go in the return statement. I swapped them, if I was wrong keep in mind you might need to change it back, although it did make increaseSize start working.
 - Coord getCoord(Cell) -> returns the coordinate of a cell
 - list(Cells) getRegionCells(String coordinate1, String coordinate2) -> returns a list of cells in a given area between the two cells
 - void updateCell(String coordinate, String content) -> updates the given Cell with the string
