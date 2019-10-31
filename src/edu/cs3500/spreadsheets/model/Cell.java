@@ -54,7 +54,7 @@ public class Cell implements ICell {
   }
 
   // evaluate a cell
-  private static String evaluateInput(Sexp s){
+  private String evaluateInput(Sexp s){
     Stack<String> evaluateStack = new Stack<>();
     if (s instanceof SNumber) {
       return (String) s.accept(new ProcessSNum());

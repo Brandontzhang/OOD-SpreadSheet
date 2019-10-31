@@ -79,8 +79,10 @@ public class WorkSheetTest {
     // checking what happens when a call is made out of bounds
     // does not work
     WorkSheet test = new WorkSheet();
-    assertEquals("", test.getCell("A10"));
-    //test.updateCell("A10", "(SUB 2 1)");
+    assertEquals("", test.getCell("Z9"));
+    test.updateCell("Z9", "(SUB 2 1)");
+    //assertEquals("1", test.getCell("Z50"));
+    //assertEquals("", test.getCell("Z49"));
   }
 
   //Test inter Cells interactions-------------------------------------------------------------------

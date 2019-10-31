@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import edu.cs3500.spreadsheets.model.Cell;
+import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.sexp.Parser;
 
 public class CellTest {
@@ -65,8 +66,18 @@ public class CellTest {
   // Evaluating SUB operation cell tests -----------------------------------------------------------
   @Test
   public void evaluateSubCellTest() {
-    Cell c1 = new Cell("(SUB 3 1)");
-    assertEquals("2.0", c1.viewCell());
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "(SUB (SUB 3 1) (SUB 4 1))");
+    assertEquals("-1.0", test.getCell("A1"));
+    test.updateCell("A2", "A1");
+    assertEquals("-1.0", test.getCell("A2"));
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void recursiveCellTest() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("A1", "B1");
+    test.updateCell("B1", "A1");
   }
 
   @Test

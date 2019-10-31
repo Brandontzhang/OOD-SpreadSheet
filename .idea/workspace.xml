@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/META-INF/hw05.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkSheetTest.updateCellTest">
+  <component name="RunManager" selected="JUnit.CellTest.evaluateSubCellTest">
     <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
@@ -68,7 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.evaluateSubCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -77,29 +82,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WorkSheetTest.accessCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw05" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="accessCellTest2" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="evaluateSubCellTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.interCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.recursiveCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="recursiveCellTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkSheetTest.accessCellTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +115,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="interCellTest" />
+      <option name="METHOD_NAME" value="accessCellTest3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WorkSheetTest.updateCellTest" />
+        <item itemvalue="JUnit.CellTest.evaluateSubCellTest" />
+        <item itemvalue="JUnit.CellTest.recursiveCellTest" />
+        <item itemvalue="JUnit.WorkSheetTest.accessCellTest3" />
         <item itemvalue="JUnit.CellTest" />
-        <item itemvalue="JUnit.WorkSheetTest.interCellTest" />
-        <item itemvalue="JUnit.WorkSheetTest" />
-        <item itemvalue="JUnit.WorkSheetTest.accessCellTest2" />
+        <item itemvalue="JUnit.WorkSheetTest.updateCellTest" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +162,8 @@
       <workItem from="1571841795074" duration="6725000" />
       <workItem from="1572296178092" duration="1475000" />
       <workItem from="1572382198160" duration="20570000" />
+      <workItem from="1572524766518" duration="2454000" />
+      <workItem from="1572527804903" duration="2386000" />
     </task>
     <servers />
   </component>
@@ -178,14 +186,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java</url>
-          <line>124</line>
-          <properties class="edu.cs3500.spreadsheets.model.WorkSheet">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java</url>
           <line>53</line>

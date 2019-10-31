@@ -1,6 +1,7 @@
 package edu.cs3500.spreadsheets.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.cs3500.spreadsheets.sexp.Parser;
@@ -20,9 +21,12 @@ public class WorkSheet implements IWorkSheet {
   // 2D arraylist of cells
   private List<List<ICell>> spreadSheet;
   private int spreadSheetSize = 10;
+  private HashMap<String, Boolean> cyclicCheck;
 
   // Might need to change constructor to private and use design patterns later on
   public WorkSheet() {
+    // hashmap used to keep track of cyclic calls later
+    cyclicCheck = new HashMap<>();
 
     // for inputs out of bounds, make a loop from current size of spreadsheet up to input and insert
     // null in them until we get to the cell
@@ -42,21 +46,18 @@ public class WorkSheet implements IWorkSheet {
     // Creating a coordinate to work with
     int row = this.getInputRow(in);
     int col = this.getInputColumn(in);
-    Coord c = new Coord(row, col);
     // Check if the coordinate is out of bounds for current array list
-    if ((c.col >= this.spreadSheetSize) || (c.row >= this.spreadSheetSize)) {
+    if ((col >= this.spreadSheetSize) || (row >= this.spreadSheetSize)) {
       // Column is out of bounds, create a larger array list
       this.increaseSize(row, col);
     }
     // return content of cell
+    System.out.println("value of cell " + col + row + " is: " + this.spreadSheet.get(col).get(row).viewCell());
     return this.spreadSheet.get(col).get(row).viewCell();
-
   }
 
   // increasing the spreadsheet arraylist to size of input
   private List<List<ICell>> increaseSize(int row, int col) {
-
-
     int colSize = this.spreadSheet.size();
     for(int i = 0; i <= col - colSize; i++){
       this.spreadSheet.add(new ArrayList<ICell>(this.spreadSheet.get(0).size()));
@@ -67,8 +68,6 @@ public class WorkSheet implements IWorkSheet {
         this.spreadSheet.get(i).add(new Cell());
       }
     }
-
-
     return this.spreadSheet;
   }
 
@@ -141,20 +140,57 @@ public class WorkSheet implements IWorkSheet {
     return null;
   }
 
+
+  // Should separate updating the cell and evaluating the cell...
   @Override
   public void updateCell(String c, String s) {
+    cyclicCheck.clear();
+    if (cyclicCheck.containsKey(c)) {
+      throw new IllegalArgumentException("Cyclic call");
+    }
+    cyclicCheck.put(c, true);
+
     int row = this.getInputRow(c);
     int col = this.getInputColumn(c);
-    Coord coordinate = new Coord(row, col);
 
-    if (coordinate.col > this.spreadSheet.size()
-            || coordinate.row > this.spreadSheet.get(coordinate.col).size()) {
-      this.increaseSize(coordinate.col, coordinate.row);
+    if (col > this.spreadSheet.size() || row > this.spreadSheet.get(col).size()) {
+      this.increaseSize(col, row);
     }
 
     Parser cellParser = new Parser();
-    String update = this.evaluateInput(cellParser.parse(s));
-    this.spreadSheet.get(coordinate.col).get(coordinate.row).updateCell(update);
+    s = this.evaluateInput(cellParser.parse(s));
+
+    this.spreadSheet.get(col).get(row).updateCell(s);
+  }
+
+  // evaluate a cell
+  private String evaluateInput(Sexp s){
+    if (s instanceof SNumber) {
+      return (String) s.accept(new ProcessSNum());
+    } else if (s instanceof SString) {
+      return (String) s.accept(new ProcessSString());
+    } else if (s instanceof SSymbol) {
+      // check if it is a coordinate, if it is, return the evaluated value of the cell
+      if (validCellAddress(s.toString())) {
+        if (cyclicCheck.containsKey(s.toString())) {
+          throw new IllegalArgumentException("Cyclic call");
+        }
+        int col = this.getInputColumn(s.toString());
+        int row = this.getInputRow(s.toString());
+        // this has to be evaluated, not just returned
+        String val = this.spreadSheet.get(col).get(row).viewCell();
+        Parser cellParser = new Parser();
+        String retstr = this.evaluateInput(cellParser.parse(val));
+        return retstr;
+      }
+      return (String) s.accept(new ProcessSSymbol());
+    } else if (s instanceof SBoolean) {
+      return (String) s.accept(new ProcessSBoolean());
+    } else if (s instanceof SList) {
+      return "" + s.accept(new ProcessSList());
+    } else {
+      return "";
+    }
   }
 
   // method used to check that an input string is a valid cell address.
@@ -173,22 +209,5 @@ public class WorkSheet implements IWorkSheet {
       }
     }
     return true;
-  }
-
-  // evaluate a cell
-  private String evaluateInput(Sexp s){
-    if (s instanceof SNumber) {
-      return (String) s.accept(new ProcessSNum());
-    } else if (s instanceof SString) {
-      return (String) s.accept(new ProcessSString());
-    } else if (s instanceof SSymbol) {
-      return (String) s.accept(new ProcessSSymbol());
-    } else if (s instanceof SBoolean) {
-      return (String) s.accept(new ProcessSBoolean());
-    } else if (s instanceof SList) {
-      return "" + s.accept(new ProcessSList());
-    } else {
-      return "";
-    }
   }
 }
