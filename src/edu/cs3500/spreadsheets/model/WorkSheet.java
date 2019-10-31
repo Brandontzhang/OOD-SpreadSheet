@@ -43,46 +43,31 @@ public class WorkSheet implements IWorkSheet {
     int row = this.getInputRow(in);
     int col = this.getInputColumn(in);
     Coord c = new Coord(row, col);
-
     // Check if the coordinate is out of bounds for current array list
     if ((c.col >= this.spreadSheetSize) || (c.row >= this.spreadSheetSize)) {
       // Column is out of bounds, create a larger array list
       this.increaseSize(row, col);
     }
     // return content of cell
-    return this.spreadSheet.get(row).get(col).viewCell();
+    return this.spreadSheet.get(col).get(row).viewCell();
+
   }
 
   // increasing the spreadsheet arraylist to size of input
   private List<List<ICell>> increaseSize(int row, int col) {
-    // this doesn't work
 
-    // when creating list, fill in with blank cells
 
-    //not sure which of these implementations would be better
-
-/*    for (int i = spreadSheet.size(); i < row; i++) {
-      for (int j = spreadSheet.get(i).size(); j < col; j++) {
-        // add blank cells to these coordinates which SHOULD only be the out of bounds ones
-        // that is unless i did this wrong
-      }
-    }*/
-
-    for (int i = 0; i <= col; i++) {
-      if (i > this.spreadSheetSize) {
-        this.spreadSheet.add(i, new ArrayList<>(this.spreadSheetSize));
-      }
-      for (int j = 0; j <= row; j++) {
-        if(spreadSheet.get(i).get(j) == null) {
-          this.spreadSheet.get(i).add(new Cell());
-        }
+    int colSize = this.spreadSheet.size();
+    for(int i = 0; i <= col - colSize; i++){
+      this.spreadSheet.add(new ArrayList<ICell>(this.spreadSheet.get(0).size()));
+    }
+    for(int i = 0; i < this.spreadSheet.size(); i++){
+      int rowSize = this.spreadSheet.get(i).size();
+      for(int j = 0; j <= row - rowSize; j++){
+        this.spreadSheet.get(i).add(new Cell());
       }
     }
 
-    //remove this eventually
-    if(spreadSheet.get(col).get(row) == null){
-      System.out.println("The increaseSize function is not working properly");
-    }
 
     return this.spreadSheet;
   }

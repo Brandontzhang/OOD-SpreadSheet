@@ -59,7 +59,7 @@ public class WorkSheetTest {
     test.updateCell("B2", "2");
     assertEquals("2.0", test.getCell("B2"));
     assertEquals("1.0", test.getCell("B1"));
-    assertEquals("", test.getCell("A1"));
+    assertEquals("", test.getCell("M15"));
   }
 
   @Test
