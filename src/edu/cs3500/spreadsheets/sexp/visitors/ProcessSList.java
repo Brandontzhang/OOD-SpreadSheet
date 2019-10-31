@@ -61,8 +61,8 @@ public class ProcessSList implements SexpVisitor {
               // Check if it is a reference to a group of cells (C1:C2)
               if (trackStack.peek().toString().matches("(.*):(.*)")) {
                 String input = trackStack.peek().toString();
-                String coord1 = input.substring(0,2);
-                String coord2 = input.substring(3,5);
+                String coord1 = input.substring(0, 2);
+                String coord2 = input.substring(3, 5);
                 int col1 = this.getInputColumn(coord1);
                 int row1 = this.getInputRow(coord1);
                 int col2 = this.getInputColumn(coord2);
@@ -99,7 +99,8 @@ public class ProcessSList implements SexpVisitor {
               throw new IllegalArgumentException("Incorrect inputs for expression");
             } else {
               // removing item from stack
-              double item = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+              double item = (double)
+                      ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
               prod *= item;
             }
           }
@@ -118,8 +119,8 @@ public class ProcessSList implements SexpVisitor {
               // Check if it is a reference to a group of cells (C1:C2)
               if (trackStack.peek().toString().matches("(.*):(.*)")) {
                 String input = trackStack.peek().toString();
-                String coord1 = input.substring(0,2);
-                String coord2 = input.substring(3,5);
+                String coord1 = input.substring(0, 2);
+                String coord2 = input.substring(3, 5);
                 int col1 = this.getInputColumn(coord1);
                 int row1 = this.getInputRow(coord1);
                 int col2 = this.getInputColumn(coord2);
@@ -156,7 +157,8 @@ public class ProcessSList implements SexpVisitor {
               throw new IllegalArgumentException("Incorrect inputs for expression");
             } else {
               // removing item from stack
-              double item = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+              double item = (double)
+                      ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
               sum += item;
             }
           }
@@ -174,7 +176,8 @@ public class ProcessSList implements SexpVisitor {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack
-          double first = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+          double first = (double)
+                  ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
 
           // checking second item in stack is valid for SUB operation
           if ((!(trackStack.peek() instanceof SNumber))
@@ -182,7 +185,8 @@ public class ProcessSList implements SexpVisitor {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing second item from stack
-          double second = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+          double second = (double)
+                  ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
 
           // pushing answer onto the stack
           trackStack.push(first - second);
@@ -198,7 +202,8 @@ public class ProcessSList implements SexpVisitor {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack
-          double intOne = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+          double intOne = (double)
+                  ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
 
           // checking second item in expression is valid
           if ((!(trackStack.peek() instanceof SNumber))
@@ -206,7 +211,8 @@ public class ProcessSList implements SexpVisitor {
             throw new IllegalArgumentException("Incorrect inputs for expression");
           }
           // removing first item from stack
-          double intTwo = (double) ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
+          double intTwo = (double)
+                  ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet));
 
           // pushing answer onto the stack
           trackStack.push(intOne < intTwo);
@@ -221,7 +227,8 @@ public class ProcessSList implements SexpVisitor {
           // have to process everything within the stack
           while (trackStack.size() > 0) {
             // removing item from stack
-            String item = ((Sexp) trackStack.pop()).accept(new ProcessSList(this.spreadSheet)).toString();
+            String item = ((Sexp)
+                    trackStack.pop()).accept(new ProcessSList(this.spreadSheet)).toString();
             retstr = retstr + item;
           }
           trackStack.push(retstr);
@@ -236,28 +243,28 @@ public class ProcessSList implements SexpVisitor {
 
   // Given a string input referring to a cell, return the row (int form)
   private int getInputRow(String s) {
-      int retint = 0;
-      for (int i = 0; i < s.length(); i++) {
-        if (!Character.isLetter(s.charAt(i))) {
-          retint = Integer.parseInt(s.substring(i));
-          return retint;
-        }
+    int retint = 0;
+    for (int i = 0; i < s.length(); i++) {
+      if (!Character.isLetter(s.charAt(i))) {
+        retint = Integer.parseInt(s.substring(i));
+        return retint;
       }
-      return retint;
+    }
+    return retint;
   }
 
   // Given a string input referring to a cell, return the column (int form)
   private int getInputColumn(String s) {
-      String retstr = "";
-      for (int i = 0; i < s.length(); i++) {
-        if (!Character.isLetter(s.charAt(i))) {
-          // if the current char isn't a letter, start checking for numbers
-          return Coord.colNameToIndex(retstr);
-        } else {
-          // can replace with string builder
-          retstr = retstr + s.charAt(i);
-        }
+    String retstr = "";
+    for (int i = 0; i < s.length(); i++) {
+      if (!Character.isLetter(s.charAt(i))) {
+        // if the current char isn't a letter, start checking for numbers
+        return Coord.colNameToIndex(retstr);
+      } else {
+        // can replace with string builder
+        retstr = retstr + s.charAt(i);
       }
-      return Coord.colNameToIndex(retstr);
+    }
+    return Coord.colNameToIndex(retstr);
   }
 }

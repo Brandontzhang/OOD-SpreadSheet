@@ -200,9 +200,9 @@ public class WorkSheet implements IWorkSheet {
   }
 
   /**
-   *  method used to check that an input string is a valid cell address.
-   *  (Letters followed by numbers)
-   *  need to consider cases, A8, A100, A1000... BA1, ABA10, BABA100
+   * method used to check that an input string is a valid cell address. (Letters followed by
+   * numbers) need to consider cases, A8, A100, A1000... BA1, ABA10, BABA100
+   *
    * @param s input String
    * @return whether s is valid
    */

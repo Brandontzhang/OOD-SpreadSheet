@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import edu.cs3500.spreadsheets.model.Cell;
 import edu.cs3500.spreadsheets.sexp.Parser;
 
 /**
@@ -18,7 +17,7 @@ public class CellTest {
   }
 //
 //
-//  // Creating Cell Tests ---------------------------------------------------------------------------
+//  // Creating Cell Tests ------------------------------------------------------------------------
 //  @Test
 //  public void createCellTest() {
 //    WorkSheet w1
@@ -52,5 +51,5 @@ public class CellTest {
 //    // string
 //    Cell c1 = new Cell("\"hi\"");
 //    assertEquals("\"hi\"", c1.viewCell());
-//  }
+  //}
 }

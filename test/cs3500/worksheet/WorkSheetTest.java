@@ -103,7 +103,7 @@ public class WorkSheetTest {
     test.updateCell("A2", "(SUM 5 1)");
     test.updateCell("A3", "2");
     test.updateCell("A4", "(PRODUCT A1:A3)");
-    //assertEquals("24", test.getCell("B3"));
+    assertEquals("24.0", test.getCell("A4"));
   }
 
   @Test
@@ -190,49 +190,49 @@ public class WorkSheetTest {
     assertEquals("0.0", test.getCell("C1"));
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest7() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 a) (SUB 6.0 7.0))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest8() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB a 9) (SUB 6.0 7.0))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest9() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 11) (SUB a 7.0))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest10() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 11) (SUB 6.0 a))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest11() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB 7 8 9)");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest12() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 9 11) (SUB 6.0 7.0))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest13() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 11) (SUB 6.0 7.0 1.0))");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSubCellTest14() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB 7.0)");
@@ -260,13 +260,13 @@ public class WorkSheetTest {
     assertEquals("false", test.getCell("C1"));
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateLessThanCellTest4() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(< 5 7 8)");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateLessThanCellTest5() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(< 5)");
@@ -287,7 +287,7 @@ public class WorkSheetTest {
     assertEquals("36.0", test.getCell("C1"));
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateProductCellTest3() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(PRODUCT 7)");
@@ -308,7 +308,7 @@ public class WorkSheetTest {
     assertEquals("10.0", test.getCell("C1"));
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void evaluateSumCellTest3() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUM 2)");
@@ -354,7 +354,7 @@ public class WorkSheetTest {
     assertEquals("-1.0", test.getCell("A2"));
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void cyclicCellTest2() {
     WorkSheet test = new WorkSheet();
     test.updateCell("A1", "B1");
