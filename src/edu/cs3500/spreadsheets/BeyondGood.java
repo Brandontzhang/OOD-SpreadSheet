@@ -2,6 +2,9 @@ package edu.cs3500.spreadsheets;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.nio.CharBuffer;
 
 import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.model.WorksheetBuild;
@@ -20,6 +23,18 @@ public class BeyondGood {
   public static void main(String[] args) {
     WorksheetBuild b1 = new WorksheetBuild();
     WorkSheet ws = new WorkSheet();
+
+    Readable in = new StringReader("");
+    for (String s: args) {
+      try {
+        in.read(CharBuffer.wrap(s));
+      } catch (IOException e) {
+        System.out.println("Error with IO");
+      }
+
+      // trying to use the reader they gave
+    WorksheetReader.read(b1, in);
+
     String filePath;
     String content;
     String cellEval;
@@ -28,22 +43,22 @@ public class BeyondGood {
     // first line -in filename -eval cell
     // cell =(content)
 
-    for (String s: args) {
-      // reading in args
-      System.out.println(s);
-      if (args[0].equals("-in")) {
-        try {
-          FileReader fd = new FileReader(args[1]);
-          ws = WorksheetReader.read(b1, fd);
-        } catch (FileNotFoundException e) {
-          System.out.println("File not Found");
-        }
-        if (args[2].equals("-eval")) {
-          ws.getCell(args[3]);
-        }
-      } else {
-        System.out.println("Command-line was malformed");
-      }
+//    for (String s: args) {
+//      // reading in args
+//      System.out.println(s);
+//      if (args[0].equals("-in")) {
+//        try {
+//          FileReader fd = new FileReader(args[1]);
+//          ws = WorksheetReader.read(b1, fd);
+//        } catch (FileNotFoundException e) {
+//          System.out.println("File not Found");
+//        }
+//        if (args[2].equals("-eval")) {
+//          ws.getCell(args[3]);
+//        }
+//      } else {
+//        System.out.println("Command-line was malformed");
+//      }
     }
 
 
