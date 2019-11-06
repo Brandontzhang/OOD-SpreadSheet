@@ -1,35 +1,39 @@
 package edu.cs3500.spreadsheets.sexp.visitors;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
-/**
- * Visitor to SString.
- */
-public class ProcessSString implements SexpVisitor {
+public class GetSListContent implements SexpVisitor {
   @Override
   public Object visitBoolean(boolean b) {
-    throw new IllegalArgumentException("Wrong type");
+    return null;
   }
 
   @Override
   public Object visitNumber(double d) {
-    throw new IllegalArgumentException("Wrong type");
+    return null;
   }
 
   @Override
   public Object visitSymbol(String s) {
-    throw new IllegalArgumentException("Wrong type");
+    return null;
   }
 
   @Override
   public Object visitString(String s) {
-    return s;
+    return null;
   }
 
   @Override
   public Object visitSList(List l) {
-    throw new IllegalArgumentException("Wrong type");
+    ArrayList<Sexp> temp = new ArrayList<>();
+    // Returns the list
+    for (int i = 0; i < l.size(); i++) {
+      temp.add((Sexp) l.get(i));
+    }
+    return temp;
   }
 }

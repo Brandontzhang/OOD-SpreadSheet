@@ -2,17 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/AppendVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/LessThanVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProductVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/SubVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/SumVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/ICell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/ICell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/CellTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSBoolean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSNum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/ProcessSSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/visitors/GetSListContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/CellTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTest.java" afterDir="false" />
     </list>
@@ -60,8 +75,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WorkSheetTest">
-    <configuration name="WorkSheetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CellTest">
+    <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -70,13 +85,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.evaluateSumCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.createCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -85,14 +100,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="evaluateSumCellTest" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="createCellTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.interCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.createCellTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -101,14 +116,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="interCellTest2" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="createCellTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.interCellTest4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.createCellTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -117,14 +132,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="interCellTest4" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="createCellTest3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTest.interCellTest5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CellTest.createCellTest5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -133,27 +148,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
-      <option name="METHOD_NAME" value="interCellTest5" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
+      <option name="METHOD_NAME" value="createCellTest5" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.WorkSheetTest" />
-      <item itemvalue="JUnit.WorkSheetTest.interCellTest4" />
-      <item itemvalue="JUnit.WorkSheetTest.evaluateSumCellTest" />
-      <item itemvalue="JUnit.WorkSheetTest.interCellTest2" />
-      <item itemvalue="JUnit.WorkSheetTest.interCellTest5" />
+      <item itemvalue="JUnit.CellTest.createCellTest" />
+      <item itemvalue="JUnit.CellTest.createCellTest2" />
+      <item itemvalue="JUnit.CellTest.createCellTest5" />
+      <item itemvalue="JUnit.CellTest.createCellTest3" />
+      <item itemvalue="JUnit.CellTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WorkSheetTest" />
-        <item itemvalue="JUnit.WorkSheetTest.interCellTest5" />
-        <item itemvalue="JUnit.WorkSheetTest.interCellTest2" />
-        <item itemvalue="JUnit.WorkSheetTest.interCellTest4" />
-        <item itemvalue="JUnit.WorkSheetTest.evaluateSumCellTest" />
+        <item itemvalue="JUnit.CellTest" />
+        <item itemvalue="JUnit.CellTest.createCellTest3" />
+        <item itemvalue="JUnit.CellTest.createCellTest5" />
+        <item itemvalue="JUnit.CellTest.createCellTest2" />
+        <item itemvalue="JUnit.CellTest.createCellTest" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +188,9 @@
       <workItem from="1572296178092" duration="1475000" />
       <workItem from="1572382198160" duration="20570000" />
       <workItem from="1572524766518" duration="2454000" />
-      <workItem from="1572527804903" duration="14990000" />
+      <workItem from="1572527804903" duration="16518000" />
+      <workItem from="1572906395513" duration="521000" />
+      <workItem from="1572909616474" duration="21331000" />
     </task>
     <servers />
   </component>
@@ -196,10 +213,11 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="18" />
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/SList.java</url>
+          <line>14</line>
+          <properties field="contents" class="edu.cs3500.spreadsheets.sexp.SList" />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

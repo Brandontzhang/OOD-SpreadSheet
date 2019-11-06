@@ -1,0 +1,5 @@
+-in ws1 
+A1 =(SUB 2 1)
+A2 =(SUM 3 4 5)
+-eval A1
+-eval A2

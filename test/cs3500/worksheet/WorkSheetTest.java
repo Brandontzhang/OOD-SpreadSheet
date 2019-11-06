@@ -7,6 +7,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import edu.cs3500.spreadsheets.model.WorkSheet;
+import edu.cs3500.spreadsheets.sexp.Parser;
+import edu.cs3500.spreadsheets.sexp.Sexp;
 
 /**
  * Class for testing the worksheet.
@@ -40,6 +42,18 @@ public class WorkSheetTest {
   public void testValidAddress4() {
     boolean t = WorkSheet.validCellAddress("AAAA1111");
     assertTrue(t);
+  }
+
+  @Test
+  public void testValidAddress5() {
+    boolean t = WorkSheet.validCellAddress("AAAA");
+    assertFalse(t);
+  }
+
+  @Test
+  public void testValidAddress6() {
+    boolean t = WorkSheet.validCellAddress("<");
+    assertFalse(t);
   }
 
   @Test
@@ -111,7 +125,7 @@ public class WorkSheetTest {
     WorkSheet test = new WorkSheet();
     test.updateCell("A1", "A2");
     test.updateCell("A2", "3");
-    assertEquals("3", test.getCell("A1"));
+    assertEquals("3.0", test.getCell("A1"));
   }
 
   @Test
@@ -143,6 +157,7 @@ public class WorkSheetTest {
   }
 
   // Evaluating SUB operation cell tests -----------------------------------------------------------
+
   @Test
   public void evaluateSubCellTest() {
     WorkSheet test = new WorkSheet();
@@ -194,6 +209,7 @@ public class WorkSheetTest {
   public void evaluateSubCellTest7() {
     WorkSheet test = new WorkSheet();
     test.updateCell("C1", "(SUB (SUB 10 a) (SUB 6.0 7.0))");
+    //test.getCell("C1");
   }
 
   @Test (expected = IllegalArgumentException.class)
@@ -318,15 +334,18 @@ public class WorkSheetTest {
   @Test
   public void evaluateAppendCellTest() {
     WorkSheet test = new WorkSheet();
-    test.updateCell("C1", "(APPEND \"Hello \"  World)");
-    assertEquals("Hello World", test.getCell("C1"));
+    test.updateCell("A1", "\"Hello \"");
+    test.updateCell("B1", "\"World\"");
+    test.updateCell("C1", "(APPEND A1 B1)");
+    assertEquals("\"Hello World\"", test.getCell("C1"));
   }
 
   @Test
   public void evaluateAppendCellTest2() {
     WorkSheet test = new WorkSheet();
-    test.updateCell("C1", "(APPEND Answer (SUM 1 2))");
-    assertEquals("Answer3.0", test.getCell("C1"));
+
+    test.updateCell("C1", "(APPEND \"Answer: \" (SUM 1 2))");
+    assertEquals("\"Answer: 3.0\"", test.getCell("C1"));
   }
 
   // Combination evaluation Cell Tests -------------------------------------------------------------
@@ -358,6 +377,14 @@ public class WorkSheetTest {
   public void cyclicCellTest2() {
     WorkSheet test = new WorkSheet();
     test.updateCell("A1", "B1");
+    test.updateCell("B1", "A1");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void cyclicCellTest3() {
+    WorkSheet test = new WorkSheet();
+    test.updateCell("C1", "1");
+    test.updateCell("A1", "(SUB B1 C1)");
     test.updateCell("B1", "A1");
   }
 }

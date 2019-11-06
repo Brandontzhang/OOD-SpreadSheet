@@ -19,6 +19,7 @@ public class BeyondGood {
     // cell =(content)
 
     for (String s: args) {
+      // reading in args
       System.out.println(s);
       b1.createCell(1,2,"3");
     }
