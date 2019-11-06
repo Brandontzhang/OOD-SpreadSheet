@@ -75,7 +75,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CellTest">
+  <component name="RunManager" selected="JUnit.WorkSheetTest">
     <configuration name="CellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
@@ -87,22 +87,6 @@
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CellTest.createCellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw05" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="createCellTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,20 +139,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WorkSheetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.CellTest.createCellTest" />
       <item itemvalue="JUnit.CellTest.createCellTest2" />
       <item itemvalue="JUnit.CellTest.createCellTest5" />
       <item itemvalue="JUnit.CellTest.createCellTest3" />
       <item itemvalue="JUnit.CellTest" />
+      <item itemvalue="JUnit.WorkSheetTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WorkSheetTest" />
         <item itemvalue="JUnit.CellTest" />
         <item itemvalue="JUnit.CellTest.createCellTest3" />
         <item itemvalue="JUnit.CellTest.createCellTest5" />
         <item itemvalue="JUnit.CellTest.createCellTest2" />
-        <item itemvalue="JUnit.CellTest.createCellTest" />
       </list>
     </recent_temporary>
   </component>

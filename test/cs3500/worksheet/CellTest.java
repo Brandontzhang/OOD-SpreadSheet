@@ -3,12 +3,9 @@ package cs3500.worksheet;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import edu.cs3500.spreadsheets.model.Cell;
 import edu.cs3500.spreadsheets.sexp.Parser;
-import edu.cs3500.spreadsheets.sexp.Sexp;
 
 /**
  * Class for testing cells.
@@ -87,5 +84,4 @@ public class CellTest {
     c1.updateCell("\"hi\"");
     assertEquals("\"hi\"", c1.getContent().toString());
   }
-
 }
