@@ -38,11 +38,16 @@ public class Cell implements ICell {
 
   @Override
   public boolean equals(Object o) {
-    return false;
+    if (o instanceof Cell) {
+      Cell t = (Cell) o;
+      return this.content.toString().equals(((Cell) o).content.toString());
+    } else {
+      return false;
+    }
   }
 
   @Override
   public int hashCode() {
-    return 0;
+    return this.content.hashCode();
   }
 }

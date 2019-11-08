@@ -300,4 +300,17 @@ public class WorkSheet implements IWorkSheet {
     }
     return foundLetter && foundNum;
   }
+
+  @Override
+  public List<List<ICell>> getDataSheet() {
+    // copies the spreadsheet to return it
+    List<List<ICell>> dataCopy = new ArrayList<>();
+    for (int i = 0; i < this.spreadSheet.size(); i++){
+      dataCopy.add(new ArrayList<>());
+      for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
+        dataCopy.get(i).add(this.spreadSheet.get(i).get(j));
+      }
+    }
+    return dataCopy;
+  }
 }

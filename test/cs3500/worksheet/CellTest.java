@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import edu.cs3500.spreadsheets.model.Cell;
+import edu.cs3500.spreadsheets.model.Coord;
 import edu.cs3500.spreadsheets.sexp.Parser;
 
 /**
@@ -83,5 +84,10 @@ public class CellTest {
     Cell c1 = new Cell();
     c1.updateCell("\"hi\"");
     assertEquals("\"hi\"", c1.getContent().toString());
+  }
+
+  @Test
+  public void coordTest() {
+    System.out.println(Coord.colIndexToName(11));
   }
 }

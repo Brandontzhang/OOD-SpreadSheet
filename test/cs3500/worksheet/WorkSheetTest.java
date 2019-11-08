@@ -7,8 +7,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import edu.cs3500.spreadsheets.model.WorkSheet;
-import edu.cs3500.spreadsheets.sexp.Parser;
-import edu.cs3500.spreadsheets.sexp.Sexp;
 
 /**
  * Class for testing the worksheet.
