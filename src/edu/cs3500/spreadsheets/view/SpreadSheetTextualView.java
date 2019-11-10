@@ -1,6 +1,8 @@
 package edu.cs3500.spreadsheets.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import edu.cs3500.spreadsheets.model.Coord;
@@ -14,7 +16,11 @@ public class SpreadSheetTextualView implements ISpreadSheetView {
 
   public SpreadSheetTextualView(WorkSheet model) {
     this.model = model;
-    this.ap = new StringBuilder();
+    try {
+      this.ap = new PrintWriter("out.txt");
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
   }
 
   public SpreadSheetTextualView(WorkSheet model, Appendable ap) throws IllegalArgumentException {
