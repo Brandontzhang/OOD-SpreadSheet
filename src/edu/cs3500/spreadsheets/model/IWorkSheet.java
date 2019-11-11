@@ -14,4 +14,7 @@ public interface IWorkSheet {
 
   // Method to return the entire data set
   List<List<ICell>> getDataSheet();
+
+  // Method to return the entire processed data set
+  List<List<String>> getProcessedDataSheet();
 }

@@ -313,4 +313,20 @@ public class WorkSheet implements IWorkSheet {
     }
     return dataCopy;
   }
+
+  @Override
+  public List<List<String>> getProcessedDataSheet() {
+    // copies the spreadsheet to return it
+    List<List<String>> dataCopy = new ArrayList<>();
+    for (int i = 0; i < this.spreadSheet.size(); i++){
+      dataCopy.add(new ArrayList<String>());
+      for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
+        if (i != 0 && j != 0) {
+          String cell = "" + Coord.colIndexToName(i) + j;
+          dataCopy.get(i).add(this.getCell(cell));
+        }
+      }
+    }
+    return dataCopy;
+  }
 }

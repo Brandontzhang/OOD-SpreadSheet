@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.nio.CharBuffer;
 
+import edu.cs3500.spreadsheets.model.IWorkSheet;
 import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.model.WorksheetBuild;
 import edu.cs3500.spreadsheets.model.WorksheetReader;
+import edu.cs3500.spreadsheets.view.ISpreadSheetView;
+import edu.cs3500.spreadsheets.view.IView;
+import edu.cs3500.spreadsheets.view.SpreadSheetGraphicsView;
 
 
 /**
@@ -21,6 +25,11 @@ public class BeyondGood {
    * @param args any command-line arguments
    */
   public static void main(String[] args) {
+    IWorkSheet model = new WorkSheet();
+    model.updateCell("B2", "1");
+    IView view = new SpreadSheetGraphicsView( model);
+    view.makeVisible();
+
     WorksheetBuild b1 = new WorksheetBuild();
     WorkSheet ws = new WorkSheet();
 
