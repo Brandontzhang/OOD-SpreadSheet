@@ -64,11 +64,11 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
       for (int j = 0; j < this.windowHeight; j+=height) {
         if (i != 0 && j == 0) {
           // column names at the top
-          g2d.drawString("" + Coord.colIndexToName((i + this.horizontal) / 40), i , j + 19);
+          g2d.drawString("" + Coord.colIndexToName((i + this.horizontal) / 40), i + 3 , j + 19);
           drawData(g2d, i, j);
         } else if ( i == 0 && j > 0) {
           // row names at the left most row
-          g2d.drawString("" + ((j + this.vertical) / 20), i , j + 19);
+          g2d.drawString("" + ((j + this.vertical) / 20), i + 3 , j + 19);
           drawData(g2d, i, j);
         } else {
           drawData(g2d, i, j);
@@ -81,7 +81,7 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
 
   private void drawData(Graphics g2d, int i, int j) {
     try {
-      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20), i, j + 39);
+      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20), i + 3, j + 39);
     } catch(IndexOutOfBoundsException e) {
       // there is no more data, nothing needs to be printed
     }

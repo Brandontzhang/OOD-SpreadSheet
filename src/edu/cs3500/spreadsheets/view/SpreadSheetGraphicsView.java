@@ -61,14 +61,14 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
 
     class horizontalScrollListener implements AdjustmentListener {
       public void adjustmentValueChanged(AdjustmentEvent e) {
-        scroll.verticalScroll(e.getValue());
+        scroll.horizontalScroll(e.getValue());
         scroll.repaint();
       }
     }
 
     class verticalScrollListener implements AdjustmentListener {
       public void adjustmentValueChanged(AdjustmentEvent e) {
-        scroll.horizontalScroll(e.getValue());
+        scroll.verticalScroll(e.getValue());
         scroll.repaint();
       }
     }

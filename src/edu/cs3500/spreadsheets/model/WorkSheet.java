@@ -60,10 +60,13 @@ public class WorkSheet implements IWorkSheet {
     int col = this.getInputColumn(c);
 
     if (col > this.spreadSheet.size() - 1) {
-      this.increaseSize(col, row);
+      this.increaseSize(row, col);
     } else if (row > this.spreadSheet.get(col).size() - 1) {
-      this.increaseSize(col, row);
+      this.increaseSize(row, col);
     }
+
+    System.out.println(this.spreadSheet.size()-1);
+    System.out.println(this.spreadSheet.get(col).size()-1);
 
     try {
       processCell(p.parse(s));
@@ -228,10 +231,10 @@ public class WorkSheet implements IWorkSheet {
     for (int i = 0; i <= col - colSize; i++) {
       this.spreadSheet.add(new ArrayList<>(this.spreadSheet.get(0).size()));
     }
-    for (List<ICell> iCells : this.spreadSheet) {
-      int rowSize = iCells.size();
+    for (List<ICell> lists : this.spreadSheet) {
+      int rowSize = lists.size();
       for (int j = 0; j <= row - rowSize; j++) {
-        iCells.add(new Cell());
+        lists.add(new Cell());
       }
     }
   }

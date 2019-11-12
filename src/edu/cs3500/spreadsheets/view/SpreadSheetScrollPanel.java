@@ -29,11 +29,17 @@ public class SpreadSheetScrollPanel extends JPanel {
     this.sp.paintComponent(g);
   }
 
-  public void horizontalScroll(int scrollAmt) {
+  public void verticalScroll(int scrollAmt) {
+    if (scrollAmt >= this.vertical.getMaximum() - 100) {
+      this.vertical.setMaximum(this.vertical.getMaximum() + 100);
+    }
     this.sp.changeVerticalPosition(scrollAmt);
   }
 
-  public void verticalScroll(int scrollAmt) {
+  public void horizontalScroll(int scrollAmt) {
+    if (scrollAmt >= this.horizontal.getMaximum() - 100) {
+      this.horizontal.setMaximum(this.horizontal.getMaximum() + 100);
+    }
     this.sp.changeHorizontalPosition(scrollAmt);
   }
 }
