@@ -17,16 +17,31 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
   // current position of spreadsheet
   int horizontal;
   int vertical;
+  int windowWidth;
+  int windowHeight;
+
   SpreadSheetPanel(List<List<String>> data) {
     this.data = data;
     this.horizontal = 0;
     this.vertical = 0;
+    this.windowHeight = 502;
+    this.windowWidth = 1002;
   }
 
   // allows for changing of the section of the spreadsheet being displayed
-  public void changePosition(int horizontal, int vertical) {
-    this.horizontal = horizontal;
-    this.vertical = vertical;
+  public void changeVerticalPosition(int verticalShift) {
+    this.vertical = (verticalShift * 20);
+  }
+
+  // allows for changing of the section of the spreadsheet being displayed
+  public void changeHorizontalPosition(int horizontalShift) {
+    this.horizontal = (horizontalShift * 40);
+  }
+
+  // keep track of size of window
+  public void setHeightWidth(int width, int height) {
+    this.windowHeight = height;
+    this.windowWidth = width;
   }
 
   @Override
@@ -38,31 +53,37 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
 //    g2d.setColor(Color.WHITE);
 //    g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-    g2d.setColor(Color.BLACK);
+    g2d.setColor(Color.GREEN);
     g2d.drawLine(this.getWidth(), 0, 0, this.getHeight());
 
+    g2d.setColor(Color.BLACK);
     // Use a for loop to draw the cells and put in the content here
     int width = 40;
     int height = 20;
-    for(int i = 0; i < 1000; i+=width) {
-      for (int j = 0; j < 500; j+=height) {
+    for(int i = 0; i < this.windowWidth; i+=width) {
+      for (int j = 0; j < this.windowHeight; j+=height) {
         if (i != 0 && j == 0) {
           // column names at the top
-          g2d.drawString("" + Coord.colIndexToName(i / 40), i + 20 , j + 19);
+          g2d.drawString("" + Coord.colIndexToName((i + this.horizontal) / 40), i , j + 19);
+          drawData(g2d, i, j);
         } else if ( i == 0 && j > 0) {
           // row names at the left most row
-          g2d.drawString("" + (j / 20), i + 20 , j + 19);
+          g2d.drawString("" + ((j + this.vertical) / 20), i , j + 19);
+          drawData(g2d, i, j);
         } else {
-          // write contents from data
-          try {
-            g2d.drawString(this.data.get((i/40)).get(j/20), i + 20, j + 39);
-          } catch(IndexOutOfBoundsException e) {
-
-          }
+          drawData(g2d, i, j);
         }
 
         g2d.draw(new Rectangle2D.Double(i, j, width, height));
       }
+    }
+  }
+
+  private void drawData(Graphics g2d, int i, int j) {
+    try {
+      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20), i, j + 39);
+    } catch(IndexOutOfBoundsException e) {
+      // there is no more data, nothing needs to be printed
     }
   }
 }

@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51c89ab-5986-4ae2-9e21-a883ba6fe2eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,11 +136,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.BeyondGood" />
       <item itemvalue="JUnit.CellTest" />
       <item itemvalue="JUnit.WorkSheetTest" />
       <item itemvalue="JUnit.CellTest.coordTest" />
       <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView" />
-      <item itemvalue="Application.BeyondGood" />
     </list>
     <recent_temporary>
       <list>
@@ -173,7 +173,8 @@
       <workItem from="1572909616474" duration="21331000" />
       <workItem from="1573225618005" duration="4666000" />
       <workItem from="1573350824247" duration="1408000" />
-      <workItem from="1573415635606" duration="8553000" />
+      <workItem from="1573415635606" duration="8972000" />
+      <workItem from="1573570667944" duration="3400000" />
     </task>
     <servers />
   </component>

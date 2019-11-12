@@ -59,7 +59,9 @@ public class WorkSheet implements IWorkSheet {
     int row = this.getInputRow(c);
     int col = this.getInputColumn(c);
 
-    if (col > this.spreadSheet.size() || row > this.spreadSheet.get(col).size()) {
+    if (col > this.spreadSheet.size() - 1) {
+      this.increaseSize(col, row);
+    } else if (row > this.spreadSheet.get(col).size() - 1) {
       this.increaseSize(col, row);
     }
 

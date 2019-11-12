@@ -25,12 +25,15 @@ public class SpreadSheetScrollPanel extends JPanel {
 
   @Override
   protected void paintComponent(Graphics g) {
+    this.sp.setHeightWidth(this.getWidth(), this.getHeight());
     this.sp.paintComponent(g);
   }
 
+  public void horizontalScroll(int scrollAmt) {
+    this.sp.changeVerticalPosition(scrollAmt);
+  }
 
-  //this.add(this.horizontal, );
-  //this.add(scrollPane, BorderLayout.CENTER);
-
-
+  public void verticalScroll(int scrollAmt) {
+    this.sp.changeHorizontalPosition(scrollAmt);
+  }
 }

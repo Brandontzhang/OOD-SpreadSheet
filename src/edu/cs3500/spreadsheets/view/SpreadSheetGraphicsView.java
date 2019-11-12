@@ -2,6 +2,8 @@ package edu.cs3500.spreadsheets.view;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -50,12 +52,29 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
     spreadSheetPanel = new SpreadSheetPanel(data);
 
     //Scoll bars
-    this.horizontal = new JScrollBar(JScrollBar.HORIZONTAL, 0, 20, 0, 500);
+    this.horizontal = new JScrollBar(JScrollBar.HORIZONTAL);
     this.vertical = new JScrollBar(JScrollBar.VERTICAL, 0, 20, 0, 500);
 
     SpreadSheetScrollPanel scroll = new SpreadSheetScrollPanel(spreadSheetPanel, this.horizontal, this.vertical);
     this.add(scroll, BorderLayout.CENTER);
     scroll.setPreferredSize(new Dimension(1002, 502));
+
+    class horizontalScrollListener implements AdjustmentListener {
+      public void adjustmentValueChanged(AdjustmentEvent e) {
+        scroll.verticalScroll(e.getValue());
+        scroll.repaint();
+      }
+    }
+
+    class verticalScrollListener implements AdjustmentListener {
+      public void adjustmentValueChanged(AdjustmentEvent e) {
+        scroll.horizontalScroll(e.getValue());
+        scroll.repaint();
+      }
+    }
+
+    this.horizontal.addAdjustmentListener(new horizontalScrollListener( ));
+    this.vertical.addAdjustmentListener(new verticalScrollListener( ));
 
 
     this.add(this.vertical, BorderLayout.EAST);
