@@ -2,6 +2,7 @@ package edu.cs3500.spreadsheets;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringReader;
 import java.nio.CharBuffer;
 import java.io.FileReader;
@@ -91,6 +92,7 @@ public class BeyondGood {
         FileReader fd = new FileReader(args[1]);
         //causing a nullpointerexception. I can only guess it's something to do with fd not
         //being used correctly
+
         ws = WorksheetReader.read(b1, fd);
       } catch (FileNotFoundException e) {
         System.out.println("File not found.");
@@ -98,15 +100,17 @@ public class BeyondGood {
 
       if (args[2].equals("-eval")) {
         //eval and this should be followed by a cell to print the contents of
-
         System.out.println(ws.getCell(args[3]));
       } else if (args[2].equals("-save")) {
 
-        ISpreadSheetView tview = new SpreadSheetTextualView(ws);
+        SpreadSheetTextualView tview = new SpreadSheetTextualView(ws);
 
         try {
+          PrintWriter pw = new PrintWriter(args[3]);
           FileWriter fw = new FileWriter(args[3]);
-          fw.write(ws.toString());
+          System.out.println(tview.toString());
+          fw.write(tview.toString());
+          fw.close();
         } catch (IOException e) {
           System.out.println("IO exception when attempting to write to file");
         }
@@ -119,6 +123,7 @@ public class BeyondGood {
       }
     } else if (args[0].equals("-gui")) {
       IView gui = new SpreadSheetGraphicsView(new WorkSheet());
+      gui.makeVisible();
     } else {
       System.out.println("Improperly formatted Command Line");
     }

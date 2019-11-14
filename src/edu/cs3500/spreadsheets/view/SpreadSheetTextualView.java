@@ -16,11 +16,8 @@ public class SpreadSheetTextualView implements ISpreadSheetView {
 
   public SpreadSheetTextualView(WorkSheet model) {
     this.model = model;
-    try {
-      this.ap = new PrintWriter("out.txt");
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    }
+      this.ap = new StringBuilder();
+
   }
 
   public SpreadSheetTextualView(WorkSheet model, Appendable ap) throws IllegalArgumentException {
@@ -40,7 +37,7 @@ public class SpreadSheetTextualView implements ISpreadSheetView {
         String coord = col + (j + 1);
         if (!this.model.getCell(coord).equals("")) {
           // print out the contents
-          String printContent = coord + ": " + this.model.getCell(coord);
+          String printContent = coord + " =" + this.model.getCell(coord);
           this.ap.append(printContent);
           this.ap.append("\n");
         }

@@ -10,12 +10,14 @@ import edu.cs3500.spreadsheets.sexp.Sexp;
  */
 public class WorksheetBuild implements WorksheetReader.WorksheetBuilder<WorkSheet> {
   private WorkSheet ws1;
-  private HashMap<String, Sexp> buildCells;
+  private HashMap<String, Sexp> buildCells = new HashMap<>();
 
   @Override
   public WorksheetReader.WorksheetBuilder<WorkSheet> createCell(int col, int row, String contents) {
     String index = "" + Coord.colIndexToName(col) + row;
     Parser p = new Parser();
+    contents = contents.substring(1);
+    System.out.println(contents);
     Sexp s = p.parse(contents);
     buildCells.put(index, s);
     return this;
