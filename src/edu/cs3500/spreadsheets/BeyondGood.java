@@ -1,15 +1,20 @@
 package edu.cs3500.spreadsheets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.CharBuffer;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 import edu.cs3500.spreadsheets.model.IWorkSheet;
 import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.model.WorksheetBuild;
 import edu.cs3500.spreadsheets.model.WorksheetReader;
+import edu.cs3500.spreadsheets.view.ISpreadSheetView;
 import edu.cs3500.spreadsheets.view.IView;
 import edu.cs3500.spreadsheets.view.SpreadSheetGraphicsView;
+import edu.cs3500.spreadsheets.view.SpreadSheetTextualView;
 
 
 /**
@@ -22,6 +27,7 @@ public class BeyondGood {
    * @param args any command-line arguments
    */
   public static void main(String[] args) {
+
     IWorkSheet model = new WorkSheet();
 //    model.updateCell("A1", "1");
 //    model.updateCell("B2", "2");
@@ -51,49 +57,71 @@ public class BeyondGood {
 //    model.updateCell("Z26", "26");
 //    model.updateCell("AA27", "27");
     model.updateCell("A500", "27");
-    IView view = new SpreadSheetGraphicsView( model);
-    view.makeVisible();
-
+    WorksheetReader wsr = new WorksheetReader();
     WorksheetBuild b1 = new WorksheetBuild();
     WorkSheet ws = new WorkSheet();
 
     Readable in = new StringReader("");
-    for (String s: args) {
+    for (String s : args) {
       try {
         in.read(CharBuffer.wrap(s));
       } catch (IOException e) {
         System.out.println("Error with IO");
       }
 
+
       // trying to use the reader they gave
-    WorksheetReader.read(b1, in);
 
-    String filePath;
-    String content;
-    String cellEval;
 
-    // String formats
-    // first line -in filename -eval cell
-    // cell =(content)
+      String filePath;
+      String content;
+      String cellEval;
 
-//    for (String s: args) {
-//      // reading in args
-//      System.out.println(s);
-//      if (args[0].equals("-in")) {
-//        try {
-//          FileReader fd = new FileReader(args[1]);
-//          ws = WorksheetReader.read(b1, fd);
-//        } catch (FileNotFoundException e) {
-//          System.out.println("File not Found");
-//        }
-//        if (args[2].equals("-eval")) {
-//          ws.getCell(args[3]);
-//        }
-//      } else {
-//        System.out.println("Command-line was malformed");
-//      }
+      // String formats
+      // first line -in filename -eval cell
+      // cell =(content)
+
     }
 
+    if (args[0].equals("-in")) {
+      //get next s and read in file and skip next s\
+
+      try {
+
+        FileReader fd = new FileReader(args[1]);
+        //causing a nullpointerexception. I can only guess it's something to do with fd not
+        //being used correctly
+        ws = WorksheetReader.read(b1, fd);
+      } catch (FileNotFoundException e) {
+        System.out.println("File not found.");
+      }
+
+      if (args[2].equals("-eval")) {
+        //eval and this should be followed by a cell to print the contents of
+
+        System.out.println(ws.getCell(args[3]));
+      } else if (args[2].equals("-save")) {
+
+        ISpreadSheetView tview = new SpreadSheetTextualView(ws);
+
+        try {
+          FileWriter fw = new FileWriter(args[3]);
+          fw.write(ws.toString());
+        } catch (IOException e) {
+          System.out.println("IO exception when attempting to write to file");
+        }
+
+      } else if (args[2].equals("-gui")) {
+        IView gui = new SpreadSheetGraphicsView(ws);
+        gui.makeVisible();
+      } else {
+        System.out.println("Improperly formatted Command Line");
+      }
+    } else if (args[0].equals("-gui")) {
+      IView gui = new SpreadSheetGraphicsView(new WorkSheet());
+    } else {
+      System.out.println("Improperly formatted Command Line");
+    }
 
     /*
       TODO: For now, look in the args array to obtain a filename and a cell name,
