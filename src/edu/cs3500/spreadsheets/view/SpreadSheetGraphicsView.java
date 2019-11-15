@@ -67,22 +67,22 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
     this.add(scroll, BorderLayout.CENTER);
     scroll.setPreferredSize(new Dimension(1002, 502));
 
-    class horizontalScrollListener implements AdjustmentListener {
+    class HorizontalScrollListener implements AdjustmentListener {
       public void adjustmentValueChanged(AdjustmentEvent e) {
         scroll.horizontalScroll(e.getValue());
         scroll.repaint();
       }
     }
 
-    class verticalScrollListener implements AdjustmentListener {
+    class VerticalScrollListener implements AdjustmentListener {
       public void adjustmentValueChanged(AdjustmentEvent e) {
         scroll.verticalScroll(e.getValue());
         scroll.repaint();
       }
     }
 
-    this.horizontal.addAdjustmentListener(new horizontalScrollListener( ));
-    this.vertical.addAdjustmentListener(new verticalScrollListener( ));
+    this.horizontal.addAdjustmentListener(new HorizontalScrollListener( ));
+    this.vertical.addAdjustmentListener(new VerticalScrollListener( ));
 
 
     this.add(this.vertical, BorderLayout.EAST);

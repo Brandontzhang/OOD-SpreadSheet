@@ -19,7 +19,7 @@ public class SpreadSheetTextualView implements ISpreadSheetView {
 
   public SpreadSheetTextualView(WorkSheet model) {
     this.model = model;
-      this.ap = new StringBuilder();
+    this.ap = new StringBuilder();
 
   }
 

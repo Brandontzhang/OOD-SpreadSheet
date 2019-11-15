@@ -10,7 +10,7 @@ import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.view.SpreadSheetTextualView;
 
 /**
- * Tests for WorkSheetTextualView
+ * Tests for WorkSheetTextualView.
  */
 
 public class WorkSheetTextualViewTest {
@@ -21,7 +21,7 @@ public class WorkSheetTextualViewTest {
     SpreadSheetTextualView view = new SpreadSheetTextualView(test);
     assertEquals("A1 =2.0\n", view.toString());
   }
-  
+
   @Test
   public void testTextualViewNum() throws IOException {
     WorkSheet test = new WorkSheet();
