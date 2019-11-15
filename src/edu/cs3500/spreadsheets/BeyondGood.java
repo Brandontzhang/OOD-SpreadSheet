@@ -106,7 +106,6 @@ public class BeyondGood {
         SpreadSheetTextualView tview = new SpreadSheetTextualView(ws);
 
         try {
-          PrintWriter pw = new PrintWriter(args[3]);
           FileWriter fw = new FileWriter(args[3]);
           System.out.println(tview.toString());
           fw.write(tview.toString());

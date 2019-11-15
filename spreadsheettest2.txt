@@ -1,0 +1,5 @@
+A1 =hi
+A2 =test
+A3 =4
+A5 =9
+A6 =(PRODUCT A3 A5)
