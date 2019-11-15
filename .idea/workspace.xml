@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spreadsheettest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
