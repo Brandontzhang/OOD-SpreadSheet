@@ -6,11 +6,16 @@ import java.util.List;
 
 import edu.cs3500.spreadsheets.model.Coord;
 
-public class SpreadSheetPanel extends javax.swing.JPanel{
+/**
+ * Spreadsheet panels.
+ */
+
+public class SpreadSheetPanel extends javax.swing.JPanel {
   /**
-   * Class for displaying parts, take in a string representing upper right corner in constructor, go 10x10 from there
-   * might also need to take in data from the model to draw the cells
-   * @param coord
+   * Class for displaying parts, take in a string representing upper right corner in constructor, go
+   * 10x10 from there might also need to take in data from the model to draw the cells.
+   *
+   * @param coord coordinates.
    */
   List<List<String>> data;
 
@@ -48,10 +53,8 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    Graphics2D g2d = (Graphics2D)g;
+    Graphics2D g2d = (Graphics2D) g;
 
-//    g2d.setColor(Color.WHITE);
-//    g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 
     g2d.setColor(Color.GREEN);
     g2d.drawLine(this.getWidth(), 0, 0, this.getHeight());
@@ -60,15 +63,16 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
     // Use a for loop to draw the cells and put in the content here
     int width = 40;
     int height = 20;
-    for(int i = 0; i < this.windowWidth; i+=width) {
-      for (int j = 0; j < this.windowHeight; j+=height) {
+    for (int i = 0; i < this.windowWidth; i += width) {
+      for (int j = 0; j < this.windowHeight; j += height) {
         if (i != 0 && j == 0) {
           // column names at the top
-          g2d.drawString("" + Coord.colIndexToName((i + this.horizontal) / 40), i + 3 , j + 19);
+          g2d.drawString("" + Coord.colIndexToName((i + this.horizontal) / 40),
+                  i + 3, j + 19);
           drawData(g2d, i, j);
-        } else if ( i == 0 && j > 0) {
+        } else if (i == 0 && j > 0) {
           // row names at the left most row
-          g2d.drawString("" + ((j + this.vertical) / 20), i + 3 , j + 19);
+          g2d.drawString("" + ((j + this.vertical) / 20), i + 3, j + 19);
           drawData(g2d, i, j);
         } else {
           drawData(g2d, i, j);
@@ -81,8 +85,9 @@ public class SpreadSheetPanel extends javax.swing.JPanel{
 
   private void drawData(Graphics g2d, int i, int j) {
     try {
-      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20), i + 3, j + 39);
-    } catch(IndexOutOfBoundsException e) {
+      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20),
+              i + 3, j + 39);
+    } catch (IndexOutOfBoundsException e) {
       // there is no more data, nothing needs to be printed
     }
   }

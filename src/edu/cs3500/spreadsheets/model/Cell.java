@@ -40,7 +40,7 @@ public class Cell implements ICell {
   public boolean equals(Object o) {
     if (o instanceof Cell) {
       Cell t = (Cell) o;
-      return this.content.toString().equals(((Cell) o).content.toString());
+      return this.content.equals(((Cell) o).content);
     } else {
       return false;
     }

@@ -7,6 +7,10 @@ import edu.cs3500.spreadsheets.sexp.SNumber;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
+/**
+ * Visitor for Product Functionality.
+ */
+
 public class ProductVisitor implements SexpVisitor<Sexp> {
   @Override
   public Sexp visitBoolean(boolean b) {
@@ -36,7 +40,7 @@ public class ProductVisitor implements SexpVisitor<Sexp> {
 
     double prod = 1;
     for (int i = 0; i < l.size(); i++) {
-      if(!(l.get(i) instanceof SNumber)) {
+      if (!(l.get(i) instanceof SNumber)) {
         throw new IllegalArgumentException("Wrong type of arguments");
       }
       prod = prod * Double.parseDouble(l.get(i).toString());

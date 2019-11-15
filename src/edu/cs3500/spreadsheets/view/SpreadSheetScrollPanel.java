@@ -4,12 +4,16 @@ import java.awt.*;
 
 import javax.swing.*;
 
+/**
+ * Spreadsheet scrolling.
+ */
+
 public class SpreadSheetScrollPanel extends JPanel {
-//  A second JPanel that has three fields that contain two JScrollBars and your prior grid JPanel.
-//  This panel needs to listen to any events coming from the scrollbars, and reposition your grid
-//  panel accordingly. You will also need to use a layout manager to position all three components
-//  properly; I have found the GridBagLayout to be the most useful here, and there are tutorials
-//  in the Oracle documentation on how to use them.
+  //  A second JPanel that has three fields that contain two JScrollBars and your prior grid JPanel.
+  //  This panel needs to listen to any events coming from the scrollbars, and reposition your grid
+  //  panel accordingly. You will also need to use a layout manager to position all three components
+  //  properly; I have found the GridBagLayout to be the most useful here, and there are tutorials
+  //  in the Oracle documentation on how to use them.
 
   JScrollBar horizontal;
   JScrollBar vertical;
@@ -29,12 +33,22 @@ public class SpreadSheetScrollPanel extends JPanel {
     this.sp.paintComponent(g);
   }
 
+  /**
+   * Vertical scrolling.
+   * @param scrollAmt amount to scroll.
+   */
+
   public void verticalScroll(int scrollAmt) {
     if (scrollAmt >= this.vertical.getMaximum() - 100) {
       this.vertical.setMaximum(this.vertical.getMaximum() + 100);
     }
     this.sp.changeVerticalPosition(scrollAmt);
   }
+
+  /**
+   * Horizontal Scrolling.
+   * @param scrollAmt amount to scroll.
+   */
 
   public void horizontalScroll(int scrollAmt) {
     if (scrollAmt >= this.horizontal.getMaximum() - 100) {

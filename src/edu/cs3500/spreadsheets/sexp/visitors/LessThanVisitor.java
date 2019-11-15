@@ -7,6 +7,10 @@ import edu.cs3500.spreadsheets.sexp.SNumber;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
+/**
+ * Visitor for LessThan Functionality.
+ */
+
 public class LessThanVisitor implements SexpVisitor<Sexp> {
   @Override
   public Sexp visitBoolean(boolean b) {

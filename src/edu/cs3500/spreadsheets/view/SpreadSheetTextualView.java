@@ -1,13 +1,16 @@
 package edu.cs3500.spreadsheets.view;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import edu.cs3500.spreadsheets.model.Coord;
 import edu.cs3500.spreadsheets.model.ICell;
 import edu.cs3500.spreadsheets.model.WorkSheet;
+
+
+/**
+ * Textual View for SpreadSheet.
+ */
 
 public class SpreadSheetTextualView implements ISpreadSheetView {
 

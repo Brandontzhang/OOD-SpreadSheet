@@ -1,7 +1,6 @@
 package edu.cs3500.spreadsheets.view;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.List;
@@ -9,9 +8,12 @@ import java.util.function.Consumer;
 
 import javax.swing.*;
 
-import edu.cs3500.spreadsheets.model.ICell;
 import edu.cs3500.spreadsheets.model.IWorkSheet;
 
+
+/**
+ * Graphical view for spreadsheet.
+ */
 
 public class SpreadSheetGraphicsView extends JFrame implements IView {
   //worksheet
@@ -37,6 +39,11 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
   // Consumer, accepts a string and performs an operation onit
   Consumer<String> commandCallback;
 
+  /**
+   * Constructor for Graphical view
+   * @param ws Worksheet
+   */
+
   public SpreadSheetGraphicsView(IWorkSheet ws) {
     super();
     this.ws = ws;
@@ -55,7 +62,8 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
     this.horizontal = new JScrollBar(JScrollBar.HORIZONTAL);
     this.vertical = new JScrollBar(JScrollBar.VERTICAL, 0, 20, 0, 500);
 
-    SpreadSheetScrollPanel scroll = new SpreadSheetScrollPanel(spreadSheetPanel, this.horizontal, this.vertical);
+    SpreadSheetScrollPanel scroll = new SpreadSheetScrollPanel(spreadSheetPanel,
+            this.horizontal, this.vertical);
     this.add(scroll, BorderLayout.CENTER);
     scroll.setPreferredSize(new Dimension(1002, 502));
 
@@ -80,38 +88,6 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
     this.add(this.vertical, BorderLayout.EAST);
     this.add(this.horizontal, BorderLayout.SOUTH);
 
-//    this.add(this.horizontal, BorderLayout.SOUTH);
-//    this.add(this.vertical, BorderLayout.EAST);
-
-//    scrollPane = new JScrollPane(spreadSheetPanel);
-//    this.add(scrollPane, BorderLayout.CENTER);
-
-//    //button panel
-//    buttonPanel = new JPanel();
-//    buttonPanel.setLayout(new FlowLayout());
-//    this.add(buttonPanel, BorderLayout.SOUTH);
-//
-//    //input textfield
-//    input = new JTextField(15);
-//    buttonPanel.add(input);
-//
-//    //buttons
-//    testButton = new JButton("Execute");
-//    testButton.addActionListener((ActionEvent e) ->
-//    {
-//      if (commandCallback != null) { //if there is a command callback
-//        commandCallback.accept(input.getText()); //send command to be processed
-//        input.setText(""); //clear the input text field
-//      }
-//    });
-//    buttonPanel.add(testButton);
-
-//    //another button
-//    quitButton = new JButton("Quit");
-//    quitButton.addActionListener((ActionEvent e) -> {
-//      System.exit(0);
-//    });
-//    buttonPanel.add(quitButton);
 
     commandCallback = null;
 
@@ -125,7 +101,7 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
 
   @Override
   public void setCommandCallback(Consumer<String> callback) {
-
+    //Nothing happening here
   }
 
   @Override

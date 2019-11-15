@@ -89,5 +89,6 @@ public class CellTest {
   @Test
   public void coordTest() {
     System.out.println(Coord.colIndexToName(11));
+    assertEquals("K", Coord.colIndexToName(11));
   }
 }

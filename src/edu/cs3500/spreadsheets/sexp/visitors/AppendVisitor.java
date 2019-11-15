@@ -3,9 +3,12 @@ package edu.cs3500.spreadsheets.sexp.visitors;
 import java.util.List;
 
 import edu.cs3500.spreadsheets.sexp.Parser;
-import edu.cs3500.spreadsheets.sexp.SNumber;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
+
+/**
+ * Visitor for appending.
+ */
 
 public class AppendVisitor implements SexpVisitor<Sexp> {
   @Override
@@ -41,14 +44,14 @@ public class AppendVisitor implements SexpVisitor<Sexp> {
 
     String retstr = "\"";
     for (int i = 0; i < buildstr.length(); i++) {
-      if(buildstr.charAt(i) != '\\' && buildstr.charAt(i) != '\"') {
+      if (buildstr.charAt(i) != '\\' && buildstr.charAt(i) != '\"') {
         retstr = retstr + buildstr.charAt(i);
       }
     }
     retstr = retstr + "\"";
 
     Parser p = new Parser();
-    Sexp ret = p.parse(retstr.toString());
+    Sexp ret = p.parse(retstr);
     return ret;
   }
 }

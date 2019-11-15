@@ -1,14 +1,15 @@
 package edu.cs3500.spreadsheets.sexp.visitors;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 import edu.cs3500.spreadsheets.sexp.Parser;
-import edu.cs3500.spreadsheets.sexp.SList;
 import edu.cs3500.spreadsheets.sexp.SNumber;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
+
+/**
+ * Visitor for Subtration Functionality.
+ */
 
 public class SubVisitor implements SexpVisitor<Sexp> {
   @Override

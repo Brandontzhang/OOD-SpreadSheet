@@ -65,8 +65,8 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(row, col);
     }
 
-    System.out.println(this.spreadSheet.size()-1);
-    System.out.println(this.spreadSheet.get(col).size()-1);
+    System.out.println(this.spreadSheet.size() - 1);
+    System.out.println(this.spreadSheet.get(col).size() - 1);
 
     try {
       processCell(p.parse(s));
@@ -77,13 +77,14 @@ public class WorkSheet implements IWorkSheet {
     this.spreadSheet.get(col).get(row).updateCell(s);
   }
 
-  // basically going through all the sexpressions evaluated and seeing if the same cell is referenced twice
+  // basically going through all the sexpressions evaluated and seeing if the same cell is
+  // referenced twice
   private boolean cyclicCheck(Sexp check, String cellCoord) {
     int row = this.getInputRow(cellCoord);
     int col = this.getInputColumn(cellCoord);
     if (check == null) {
       return false;
-    }else if (check instanceof SSymbol) {
+    } else if (check instanceof SSymbol) {
       if (validCellAddress(check.toString())) {
         Sexp s = this.spreadSheet.get(col).get(row).getContent();
         return (check.toString().equals(cellCoord)) || cyclicCheck(s, cellCoord);
@@ -99,7 +100,7 @@ public class WorkSheet implements IWorkSheet {
       }
       return accBool;
     } else {
-     return false;
+      return false;
     }
   }
 
@@ -275,6 +276,10 @@ public class WorkSheet implements IWorkSheet {
     }
   }
 
+
+  /**
+   * Checks to make sure a string is a properly formatted cell address.
+   */
   public static boolean validCellAddress(String s) {
     boolean lookForNum = false;
     boolean lookForLetter = true;
@@ -296,7 +301,7 @@ public class WorkSheet implements IWorkSheet {
       }
 
       if (lookForNum) {
-        if(!Character.isDigit(s.charAt(i))) {
+        if (!Character.isDigit(s.charAt(i))) {
           return false;
         } else {
           foundNum = true;
@@ -310,7 +315,7 @@ public class WorkSheet implements IWorkSheet {
   public List<List<ICell>> getDataSheet() {
     // copies the spreadsheet to return it
     List<List<ICell>> dataCopy = new ArrayList<>();
-    for (int i = 0; i < this.spreadSheet.size(); i++){
+    for (int i = 0; i < this.spreadSheet.size(); i++) {
       dataCopy.add(new ArrayList<>());
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         dataCopy.get(i).add(this.spreadSheet.get(i).get(j));
@@ -323,7 +328,7 @@ public class WorkSheet implements IWorkSheet {
   public List<List<String>> getProcessedDataSheet() {
     // copies the spreadsheet to return it
     List<List<String>> dataCopy = new ArrayList<>();
-    for (int i = 0; i < this.spreadSheet.size(); i++){
+    for (int i = 0; i < this.spreadSheet.size(); i++) {
       dataCopy.add(new ArrayList<String>());
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         if (i != 0 && j != 0) {

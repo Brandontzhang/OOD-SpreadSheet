@@ -6,6 +6,11 @@ import java.util.List;
 import edu.cs3500.spreadsheets.sexp.Sexp;
 import edu.cs3500.spreadsheets.sexp.SexpVisitor;
 
+
+/**
+ * Visitor for sList.
+ */
+
 public class GetSListContent implements SexpVisitor {
   @Override
   public Object visitBoolean(boolean b) {
