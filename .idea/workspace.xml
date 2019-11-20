@@ -2,7 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/OOD-SpreadSheet.zip" beforeDir="false" afterPath="$PROJECT_DIR$/OOD-SpreadSheet.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetEditView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetEditPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOD-SpreadSheet.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/spreadsheettest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/IView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1horizontalScrollListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1horizontalScrollListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1verticalScrollListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1verticalScrollListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spreadsheettest1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spreadsheettest2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spreadsheettest3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/ISpreadSheetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/ISpreadSheetView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/IView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +62,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -56,24 +85,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CellTest.coordTest">
-    <configuration name="CellTest.coordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.BeyondGood">
+    <configuration name="BeyondGood" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.cs3500.spreadsheets.BeyondGood" />
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="PATTERN" value="edu.cs3500.spreadsheets.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.CellTest" />
-      <option name="METHOD_NAME" value="coordTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualViewNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetTextualViewTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -83,13 +109,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualViewNum" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualViewProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetTextualViewTest.testTextualSumNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -99,13 +124,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualViewProduct" />
+      <option name="METHOD_NAME" value="testTextualSumNum" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualViewSub" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetTextualViewTest.testTextualView8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -115,13 +140,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualViewSub" />
+      <option name="METHOD_NAME" value="testTextualView8" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualViewSum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetTextualViewTest.testTextualView9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -131,26 +156,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualViewSum" />
+      <option name="METHOD_NAME" value="testTextualView9" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewSub" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewProduct" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewSum" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewNum" />
-      <item itemvalue="JUnit.CellTest.coordTest" />
+      <item itemvalue="Application.BeyondGood" />
+      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView8" />
+      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView9" />
+      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualSumNum" />
+      <item itemvalue="JUnit.WorkSheetTextualViewTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CellTest.coordTest" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewNum" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewSum" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewProduct" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualViewSub" />
+        <item itemvalue="Application.BeyondGood" />
+        <item itemvalue="JUnit.WorkSheetTextualViewTest" />
+        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualSumNum" />
+        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView9" />
+        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView8" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +184,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c51c89ab-5986-4ae2-9e21-a883ba6fe2eb" name="Default Changelist" comment="" />
+      <changelist id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="" />
       <created>1571755115984</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -177,6 +202,12 @@
       <workItem from="1573350824247" duration="1408000" />
       <workItem from="1573415635606" duration="8972000" />
       <workItem from="1573570667944" duration="4470000" />
+      <workItem from="1573829776332" duration="1071000" />
+      <workItem from="1573830933259" duration="244000" />
+      <workItem from="1573831227850" duration="166000" />
+      <workItem from="1573831508278" duration="124000" />
+      <workItem from="1573831977923" duration="1079000" />
+      <workItem from="1574209478156" duration="2962000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,8 @@
-package edu.cs3500.spreadsheets.view;
+package edu.cs3500.spreadsheets.view.panels;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class SpreadSheetPanel extends javax.swing.JPanel {
   int windowWidth;
   int windowHeight;
 
-  SpreadSheetPanel(List<List<String>> data) {
+  public SpreadSheetPanel(List<List<String>> data) {
     this.data = data;
     this.horizontal = 0;
     this.vertical = 0;
@@ -85,7 +87,12 @@ public class SpreadSheetPanel extends javax.swing.JPanel {
 
   private void drawData(Graphics g2d, int i, int j) {
     try {
-      g2d.drawString(this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20),
+      String data = this.data.get(((i + this.horizontal) / 40)).get((j + this.vertical) / 20);
+      // cutting string if it is too long
+      if (data.length() > 4) {
+        data = data.substring(0, 4);
+      }
+      g2d.drawString(data,
               i + 3, j + 39);
     } catch (IndexOutOfBoundsException e) {
       // there is no more data, nothing needs to be printed

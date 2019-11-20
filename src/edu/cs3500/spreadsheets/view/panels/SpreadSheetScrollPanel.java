@@ -1,8 +1,9 @@
-package edu.cs3500.spreadsheets.view;
+package edu.cs3500.spreadsheets.view.panels;
 
-import java.awt.*;
+import java.awt.Graphics;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 
 /**
  * Spreadsheet scrolling.
@@ -19,7 +20,7 @@ public class SpreadSheetScrollPanel extends JPanel {
   JScrollBar vertical;
   SpreadSheetPanel sp;
 
-  SpreadSheetScrollPanel(SpreadSheetPanel sp, JScrollBar horizontal, JScrollBar vertical) {
+  public SpreadSheetScrollPanel(SpreadSheetPanel sp, JScrollBar horizontal, JScrollBar vertical) {
     this.horizontal = horizontal;
     this.vertical = vertical;
     this.sp = sp;

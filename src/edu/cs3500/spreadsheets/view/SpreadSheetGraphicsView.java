@@ -1,53 +1,40 @@
 package edu.cs3500.spreadsheets.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.List;
 import java.util.function.Consumer;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JScrollBar;
 
 import edu.cs3500.spreadsheets.model.IWorkSheet;
+import edu.cs3500.spreadsheets.view.panels.SpreadSheetPanel;
+import edu.cs3500.spreadsheets.view.panels.SpreadSheetScrollPanel;
 
 
 /**
  * Graphical view for spreadsheet.
  */
 
-public class SpreadSheetGraphicsView extends JFrame implements IView {
-  //worksheet
-  private IWorkSheet ws;
-
-  // buttons needed for the interface
-  private JButton testButton;
-
-  // panels... not sure what these do yet, holding stuff?
-  private JPanel buttonPanel;
-
-  // class used to specify drawing data
-  private SpreadSheetPanel spreadSheetPanel;
-
-  // scrolling
-  private JScrollPane scrollPane;
-  private JScrollBar horizontal;
-  private JScrollBar vertical;
-
-  // text fields needed for the interface
-  private JTextField input;
-
+public class SpreadSheetGraphicsView extends JFrame implements ISpreadSheetView {
   // Consumer, accepts a string and performs an operation onit
-  Consumer<String> commandCallback;
+  private Consumer<String> commandCallback;
+  // Display view
+  private SpreadSheetScrollPanel scroll;
+  List<List<String>> data;
 
   /**
-   * Constructor for Graphical view
-   * @param ws Worksheet
+   * Constructor for Graphical view.
+   * @param inputWs Worksheet
    */
 
-  public SpreadSheetGraphicsView(IWorkSheet ws) {
+  public SpreadSheetGraphicsView(IWorkSheet inputWs) {
     super();
-    this.ws = ws;
-    List<List<String>> data = ws.getProcessedDataSheet();
+    IWorkSheet ws = inputWs;
+    this.data = ws.getProcessedDataSheet();
 
     this.setTitle("Spreadsheet");
     this.setSize(1002, 502);
@@ -56,18 +43,19 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
     //look into the different layouts
     this.setLayout(new BorderLayout());
 
-    spreadSheetPanel = new SpreadSheetPanel(data);
+    SpreadSheetPanel spreadSheetPanel = new SpreadSheetPanel(this.data);
 
-    //Scoll bars
-    this.horizontal = new JScrollBar(JScrollBar.HORIZONTAL);
-    this.vertical = new JScrollBar(JScrollBar.VERTICAL, 0, 20, 0, 500);
+    //Scroll bars
+    JScrollBar horizontal = new JScrollBar(JScrollBar.HORIZONTAL);
+    JScrollBar vertical = new JScrollBar(JScrollBar.VERTICAL, 0, 20, 0, 500);
 
-    SpreadSheetScrollPanel scroll = new SpreadSheetScrollPanel(spreadSheetPanel,
-            this.horizontal, this.vertical);
-    this.add(scroll, BorderLayout.CENTER);
-    scroll.setPreferredSize(new Dimension(1002, 502));
+    this.scroll = new SpreadSheetScrollPanel(spreadSheetPanel,
+            horizontal, vertical);
+    this.add(this.scroll, BorderLayout.CENTER);
+    this.scroll.setPreferredSize(new Dimension(1002, 502));
 
     class HorizontalScrollListener implements AdjustmentListener {
+
       public void adjustmentValueChanged(AdjustmentEvent e) {
         scroll.horizontalScroll(e.getValue());
         scroll.repaint();
@@ -81,37 +69,21 @@ public class SpreadSheetGraphicsView extends JFrame implements IView {
       }
     }
 
-    this.horizontal.addAdjustmentListener(new HorizontalScrollListener( ));
-    this.vertical.addAdjustmentListener(new VerticalScrollListener( ));
+    horizontal.addAdjustmentListener(new HorizontalScrollListener());
+    vertical.addAdjustmentListener(new VerticalScrollListener());
 
 
-    this.add(this.vertical, BorderLayout.EAST);
-    this.add(this.horizontal, BorderLayout.SOUTH);
+    this.add(vertical, BorderLayout.EAST);
+    this.add(horizontal, BorderLayout.SOUTH);
 
 
     commandCallback = null;
+    //this.pack();
+  }
 
+  @Override
+  public void render() {
     this.pack();
-  }
-
-  @Override
-  public void makeVisible() {
     this.setVisible(true);
-  }
-
-  @Override
-  public void setCommandCallback(Consumer<String> callback) {
-    //Nothing happening here
-  }
-
-  @Override
-  public void refresh() {
-    this.repaint();
-  }
-
-  @Override
-  public void showErrorMessage(String error) {
-    JOptionPane.showMessageDialog(this, error, "Error", JOptionPane.ERROR_MESSAGE);
-
   }
 }

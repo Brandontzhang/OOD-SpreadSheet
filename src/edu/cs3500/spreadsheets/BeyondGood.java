@@ -11,7 +11,8 @@ import edu.cs3500.spreadsheets.model.IWorkSheet;
 import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.model.WorksheetBuild;
 import edu.cs3500.spreadsheets.model.WorksheetReader;
-import edu.cs3500.spreadsheets.view.IView;
+import edu.cs3500.spreadsheets.view.ISpreadSheetView;
+import edu.cs3500.spreadsheets.view.SpreadSheetEditView;
 import edu.cs3500.spreadsheets.view.SpreadSheetGraphicsView;
 import edu.cs3500.spreadsheets.view.SpreadSheetTextualView;
 
@@ -25,13 +26,19 @@ public class BeyondGood {
    *
    * @param args any command-line arguments
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
 
     IWorkSheet model = new WorkSheet();
-    model.updateCell("A500", "27");
+    model.updateCell("A1", "1234567");
     WorksheetReader wsr = new WorksheetReader();
     WorksheetBuild b1 = new WorksheetBuild();
     WorkSheet ws = new WorkSheet();
+
+    // testing
+    // ISpreadSheetView guiTest = new SpreadSheetGraphicsView(model);
+    // guiTest.render();
+    ISpreadSheetView editTest = new SpreadSheetEditView(model);
+    editTest.render();
 
     Readable in = new StringReader("");
     for (String s : args) {
@@ -40,10 +47,6 @@ public class BeyondGood {
       } catch (IOException e) {
         System.out.println("Error with IO");
       }
-
-
-      // trying to use the reader they gave
-
 
       String filePath;
       String content;
@@ -57,13 +60,8 @@ public class BeyondGood {
 
     if (args[0].equals("-in")) {
       //get next s and read in file and skip next s\
-
       try {
-
         FileReader fd = new FileReader(args[1]);
-        //causing a nullpointerexception. I can only guess it's something to do with fd not
-        //being used correctly
-
         ws = WorksheetReader.read(b1, fd);
       } catch (FileNotFoundException e) {
         System.out.println("File not found.");
@@ -78,7 +76,6 @@ public class BeyondGood {
 
         try {
           FileWriter fw = new FileWriter(args[3]);
-          System.out.println(tview.toString());
           fw.write(tview.toString());
           fw.close();
         } catch (IOException e) {
@@ -86,23 +83,16 @@ public class BeyondGood {
         }
 
       } else if (args[2].equals("-gui")) {
-        IView gui = new SpreadSheetGraphicsView(ws);
-        gui.makeVisible();
+        ISpreadSheetView gui = new SpreadSheetGraphicsView(ws);
+        gui.render();
       } else {
         System.out.println("Improperly formatted Command Line");
       }
     } else if (args[0].equals("-gui")) {
-      IView gui = new SpreadSheetGraphicsView(new WorkSheet());
-      gui.makeVisible();
+      ISpreadSheetView gui = new SpreadSheetGraphicsView(new WorkSheet());
+      gui.render();
     } else {
       System.out.println("Improperly formatted Command Line");
     }
-
-    /*
-      TODO: For now, look in the args array to obtain a filename and a cell name,
-      - read the file and build a model from it,
-      - evaluate all the cells, and
-      - report any errors, or print the evaluated value of the requested cell.
-    */
   }
 }

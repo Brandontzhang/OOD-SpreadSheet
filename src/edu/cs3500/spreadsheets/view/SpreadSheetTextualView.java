@@ -17,12 +17,22 @@ public class SpreadSheetTextualView implements ISpreadSheetView {
   private WorkSheet model;
   Appendable ap;
 
+  /**
+   * Constructor for spread sheet textual view.
+   * @param model input model to display.
+   */
   public SpreadSheetTextualView(WorkSheet model) {
     this.model = model;
     this.ap = new StringBuilder();
 
   }
 
+  /**
+   * Constructor for spread sheet textual view taking in an appendable.
+   * @param model input model to display.
+   * @param ap appendable to append output.
+   * @throws IllegalArgumentException if appendable is null.
+   */
   public SpreadSheetTextualView(WorkSheet model, Appendable ap) throws IllegalArgumentException {
     if (ap == null) {
       throw new IllegalArgumentException("Null appendable");

@@ -65,9 +65,6 @@ public class WorkSheet implements IWorkSheet {
       this.increaseSize(row, col);
     }
 
-    System.out.println(this.spreadSheet.size() - 1);
-    System.out.println(this.spreadSheet.get(col).size() - 1);
-
     try {
       processCell(p.parse(s));
     } catch (IllegalArgumentException e) {
