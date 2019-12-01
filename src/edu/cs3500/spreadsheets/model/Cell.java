@@ -37,6 +37,11 @@ public class Cell implements ICell {
   }
 
   @Override
+  public String getUnevalContent() {
+    return this.content;
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (o instanceof Cell) {
       Cell t = (Cell) o;
@@ -49,5 +54,13 @@ public class Cell implements ICell {
   @Override
   public int hashCode() {
     return this.content.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    if (this.content == null) {
+      return "";
+    }
+    return this.content;
   }
 }

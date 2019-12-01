@@ -1,6 +1,7 @@
 package edu.cs3500.spreadsheets.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
@@ -45,14 +46,25 @@ public class WorkSheet implements IWorkSheet {
   @Override
   public void updateCell(String c, String s) {
     Parser p = new Parser();
-    if (p.parse(s) instanceof SSymbol) {
+
+    try {
+      if (p.parse(s) instanceof SSymbol) {
+        if (validCellAddress(s)) {
+          int rowS = this.getInputRow(s);
+          int colS = this.getInputColumn(s);
+          List<String> checkList = new ArrayList<>();
+          checkList.add(c);
+          if (this.cyclicCheck(this.spreadSheet.get(colS).get(rowS).getContent(), checkList)) {
+            this.spreadSheet.get(colS).get(rowS).updateCell("Cycle-Err");
+          }
+        }
+      }
+    } catch (IllegalArgumentException e) {
+      // Expression was formatted wrong
       if (validCellAddress(s)) {
         int rowS = this.getInputRow(s);
         int colS = this.getInputColumn(s);
-
-        if (this.cyclicCheck(this.spreadSheet.get(colS).get(rowS).getContent(), c)) {
-          throw new IllegalArgumentException("Cycle detected");
-        }
+        this.spreadSheet.get(colS).get(rowS).updateCell("Exp-Err");
       }
     }
 
@@ -68,23 +80,54 @@ public class WorkSheet implements IWorkSheet {
     try {
       processCell(p.parse(s));
     } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("Badly formatted expression");
+      this.spreadSheet.get(col).get(row).updateCell("Bad formatted input");
+    } catch (IllegalStateException e) {
+      this.spreadSheet.get(col).get(row).updateCell("Self-Ref");
     }
 
     this.spreadSheet.get(col).get(row).updateCell(s);
   }
 
+  @Override
+  public HashMap<Coord, Cell> getAllCells() {
+    HashMap<Coord, Cell> cellMap = new HashMap<>();
+    for (int i = 0; i < this.spreadSheet.size(); i++) {
+      for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
+        if (this.spreadSheet.get(i).get(j).getUnevalContent() != null) {
+          Coord newCoord = new Coord(i, j);
+          System.out.println(newCoord.toString());
+          cellMap.put(newCoord, (Cell) this.spreadSheet.get(i).get(j));
+        }
+      }
+    }
+    return cellMap;
+  }
+
   // basically going through all the sexpressions evaluated and seeing if the same cell is
   // referenced twice
-  private boolean cyclicCheck(Sexp check, String cellCoord) {
-    int row = this.getInputRow(cellCoord);
-    int col = this.getInputColumn(cellCoord);
+  private boolean cyclicCheck(Sexp check, List<String> cellCoord) {
+    boolean checker = false;
     if (check == null) {
       return false;
     } else if (check instanceof SSymbol) {
       if (validCellAddress(check.toString())) {
-        Sexp s = this.spreadSheet.get(col).get(row).getContent();
-        return (check.toString().equals(cellCoord)) || cyclicCheck(s, cellCoord);
+        for (int i = 0; i < cellCoord.size(); i++) {
+          if (cellCoord.contains(check.toString())) {
+            return true;
+          }
+          try {
+            int row = this.getInputRow(cellCoord.get(i));
+            int col = this.getInputColumn(cellCoord.get(i));
+
+            Sexp s = this.spreadSheet.get(col).get(row).getContent();
+            cellCoord.add(this.spreadSheet.get(col).get(row).getUnevalContent());
+            checker = checker || ((check.toString().equals(cellCoord))
+                    || cyclicCheck(s, cellCoord));
+          } catch (NullPointerException e) {
+            return false;
+          }
+        }
+        return checker;
       } else {
         return false;
       }
@@ -117,6 +160,10 @@ public class WorkSheet implements IWorkSheet {
       return this.processCell(spreadSheet.get(col).get(row).getContent()).toString();
     } catch (NullPointerException e) {
       return "";
+    } catch (IllegalStateException e) {
+      return "Self Ref";
+    } catch (IllegalArgumentException e) {
+      return e.getLocalizedMessage();
     }
   }
 
@@ -129,6 +176,9 @@ public class WorkSheet implements IWorkSheet {
         // get the Sexp of the cell and return its content after it is processed
         int col = getInputColumn(s.toString());
         int row = getInputRow(s.toString());
+        if (s.toString().equals(this.spreadSheet.get(col).get(row).getUnevalContent())) {
+          throw new IllegalStateException("Cell reference to self");
+        }
         return this.processCell(this.spreadSheet.get(col).get(row).getContent());
       } else {
         // not a cell reference
@@ -325,15 +375,27 @@ public class WorkSheet implements IWorkSheet {
   public List<List<String>> getProcessedDataSheet() {
     // copies the spreadsheet to return it
     List<List<String>> dataCopy = new ArrayList<>();
-    for (int i = 0; i < this.spreadSheet.size(); i++) {
-      dataCopy.add(new ArrayList<String>());
-      for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
-        if (i != 0 && j != 0) {
-          String cell = "" + Coord.colIndexToName(i) + j;
-          dataCopy.get(i).add(this.getCell(cell));
-        }
+    dataCopy.add(new ArrayList<>());
+    int w = this.spreadSheet.size();
+    int h = this.spreadSheet.get(0).size();
+    for (int i = 0; i < w; i++) {
+      dataCopy.add(new ArrayList<>());
+      for (int j = 0; j < h; j++) {
+        String cell = "" + Coord.colIndexToName(i + 1) + (j + 1);
+        dataCopy.get(i).add(this.getCell(cell));
       }
     }
     return dataCopy;
+  }
+
+  @Override
+  public String getUnprocessedData(String coord) {
+    int row = this.getInputRow(coord);
+    int col = this.getInputColumn(coord);
+    try {
+      return this.getDataSheet().get(col).get(row).toString();
+    } catch (IndexOutOfBoundsException e) {
+      return "";
+    }
   }
 }

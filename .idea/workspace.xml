@@ -2,36 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc755ee2-e724-4bc1-b8b4-2fdc550db576" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetEditView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetEditPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/controller/WorkSheetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Formula.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ISpreadSheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorksheetProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheetProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/EditableGUIView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/GUISheetView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/SheetPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/SheetView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOD-SpreadSheet.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw05.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-sheet.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newer-sheet.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/hw05_jar/hw05.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/BeyondGood.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/ICell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/ICell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/IWorkSheet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/model/WorkSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/spreadsheettest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/IView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/ISpreadSheetView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/ISpreadSheetView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetEditView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetEditView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1horizontalScrollListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1horizontalScrollListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1verticalScrollListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView$1verticalScrollListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/panels/SpreadSheetEditPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hw05/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/hw05/cs3500/worksheet/WorkSheetTextualViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot1.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot3.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spreadsheettest1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spreadsheettest2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spreadsheettest3.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/BeyondGood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/Coord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/ICell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/IWorkSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model/WorkSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/ISpreadSheetView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/ISpreadSheetView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/IView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetEditView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetEditView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetGraphicsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetScrollPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/SpreadSheetTextualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetEditPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/panels/SpreadSheetScrollPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/worksheet/WorkSheetTextualViewTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +86,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider" />
+      <recent name="$PROJECT_DIR$/src/edu/cs3500/spreadsheets/model" />
       <recent name="C:\Users\josh\IdeaProjects\OOD-SpreadSheet" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -99,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetControllerTest.controllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -108,29 +129,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualSumNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hw05" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.worksheet.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualSumNum" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetControllerTest" />
+      <option name="METHOD_NAME" value="controllerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualView8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetControllerTest.controllerTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -139,14 +145,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualView8" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetControllerTest" />
+      <option name="METHOD_NAME" value="controllerTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WorkSheetTextualViewTest.testTextualView9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorkSheetControllerTest.controllerTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hw05" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.worksheet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.worksheet" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetControllerTest" />
+      <option name="METHOD_NAME" value="controllerTest3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkSheetTextualViewTest.testTextualView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hw05" />
       <extension name="coverage">
         <pattern>
@@ -156,7 +178,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.worksheet" />
       <option name="MAIN_CLASS_NAME" value="cs3500.worksheet.WorkSheetTextualViewTest" />
-      <option name="METHOD_NAME" value="testTextualView9" />
+      <option name="METHOD_NAME" value="testTextualView" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,18 +186,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.BeyondGood" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView8" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView9" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualSumNum" />
-      <item itemvalue="JUnit.WorkSheetTextualViewTest" />
+      <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest" />
+      <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest2" />
+      <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest3" />
+      <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BeyondGood" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualSumNum" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView9" />
-        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView8" />
+        <item itemvalue="JUnit.WorkSheetTextualViewTest.testTextualView" />
+        <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest3" />
+        <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest2" />
+        <item itemvalue="JUnit.WorkSheetControllerTest.controllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +230,16 @@
       <workItem from="1573831508278" duration="124000" />
       <workItem from="1573831977923" duration="1079000" />
       <workItem from="1574209478156" duration="2962000" />
+      <workItem from="1574214057078" duration="1355000" />
+      <workItem from="1574366735910" duration="280000" />
+      <workItem from="1574631085425" duration="15510000" />
+      <workItem from="1574784474777" duration="12226000" />
+      <workItem from="1574832883205" duration="257000" />
+      <workItem from="1574833153119" duration="10613000" />
+      <workItem from="1574845848149" duration="30000" />
+      <workItem from="1574845914636" duration="89000" />
+      <workItem from="1574846169756" duration="373000" />
+      <workItem from="1575153629368" duration="12210000" />
     </task>
     <servers />
   </component>
@@ -230,11 +262,50 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/sexp/SList.java</url>
-          <line>14</line>
-          <properties field="contents" class="edu.cs3500.spreadsheets.sexp.SList" />
-          <option name="timeStamp" value="22" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java</url>
+          <line>40</line>
+          <properties class="edu.cs3500.spreadsheets.view.provider.NewEditableGUIView" method="getCoordCell">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java</url>
+          <line>50</line>
+          <properties class="edu.cs3500.spreadsheets.view.provider.NewEditableGUIView" method="selectCell">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java</url>
+          <line>55</line>
+          <properties class="edu.cs3500.spreadsheets.view.provider.NewEditableGUIView" method="updateView">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java</url>
+          <line>60</line>
+          <properties class="edu.cs3500.spreadsheets.view.provider.NewEditableGUIView" method="updateText">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/NewEditableGUIView.java</url>
+          <line>20</line>
+          <properties class="edu.cs3500.spreadsheets.view.provider.NewEditableGUIView" method="getDisplayData">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/cs3500/spreadsheets/view/provider/SheetPanel.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

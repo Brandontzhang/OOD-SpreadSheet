@@ -6,9 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 
 /**
- * Spreadsheet scrolling.
+ * Panel in charge of the scroll bars. Tracks their position and determines which cells to display.
  */
-
 public class SpreadSheetScrollPanel extends JPanel {
   //  A second JPanel that has three fields that contain two JScrollBars and your prior grid JPanel.
   //  This panel needs to listen to any events coming from the scrollbars, and reposition your grid
@@ -20,6 +19,13 @@ public class SpreadSheetScrollPanel extends JPanel {
   JScrollBar vertical;
   SpreadSheetPanel sp;
 
+  /**
+   * Constructor for a scroll panel to create references for the scroller bars and the panel
+   * it wraps around.
+   * @param sp Panel wrapped around
+   * @param horizontal horizontal bar
+   * @param vertical vertical bar
+   */
   public SpreadSheetScrollPanel(SpreadSheetPanel sp, JScrollBar horizontal, JScrollBar vertical) {
     this.horizontal = horizontal;
     this.vertical = vertical;

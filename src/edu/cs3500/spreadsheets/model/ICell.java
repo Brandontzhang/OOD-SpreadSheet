@@ -12,4 +12,7 @@ public interface ICell {
 
   // return the contents of the cell as a Sexp
   Sexp getContent();
+
+  // returns the contents of the cell unevaluated
+  String getUnevalContent();
 }
