@@ -7,7 +7,7 @@ import edu.cs3500.spreadsheets.sexp.Sexp;
  * Interface for a cell.
  */
 public interface ICell {
-  // update the cell
+  // update the cell with the input string
   void updateCell(String s);
 
   // return the contents of the cell as a Sexp

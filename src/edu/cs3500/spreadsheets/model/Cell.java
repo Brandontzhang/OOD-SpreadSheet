@@ -63,4 +63,8 @@ public class Cell implements ICell {
     }
     return this.content;
   }
+
+  public String accept(CellTextifier textifier) {
+    return textifier.visitCell(this);
+  }
 }

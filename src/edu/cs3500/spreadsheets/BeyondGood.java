@@ -8,10 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 import edu.cs3500.spreadsheets.controller.WorkSheetController;
-import edu.cs3500.spreadsheets.model.Coord;
-import edu.cs3500.spreadsheets.model.ISpreadSheet;
 import edu.cs3500.spreadsheets.model.IWorkSheet;
-import edu.cs3500.spreadsheets.model.IWorksheetProvider;
 import edu.cs3500.spreadsheets.model.WorkSheet;
 import edu.cs3500.spreadsheets.model.WorkSheetProvider;
 import edu.cs3500.spreadsheets.model.WorksheetBuild;
@@ -20,10 +17,8 @@ import edu.cs3500.spreadsheets.view.ISpreadSheetView;
 import edu.cs3500.spreadsheets.view.SpreadSheetEditView;
 import edu.cs3500.spreadsheets.view.SpreadSheetGraphicsView;
 import edu.cs3500.spreadsheets.view.SpreadSheetTextualView;
-import edu.cs3500.spreadsheets.view.provider.EditableGUIView;
-import edu.cs3500.spreadsheets.view.provider.GUISheetView;
-import edu.cs3500.spreadsheets.view.provider.NewEditableGUIView;
-import edu.cs3500.spreadsheets.view.provider.SheetView;
+import edu.cs3500.spreadsheets.provider.EditableGUIView;
+import edu.cs3500.spreadsheets.provider.NewEditableGUIView;
 
 
 /**
@@ -39,22 +34,22 @@ public class BeyondGood {
 
     IWorkSheet model = new WorkSheet();
     model.updateCell("A1", "1234567");
+    model.updateCell("B1", "(SUM A1 3)");
+    model.updateCell("K27", "50");
     WorksheetReader wsr = new WorksheetReader();
     WorksheetBuild b1 = new WorksheetBuild();
     WorkSheet ws = new WorkSheet();
 
     // testing
-    // ISpreadSheetView guiTest = new SpreadSheetGraphicsView(model);
-    // guiTest.render();
-    // ISpreadSheetView editTest = new SpreadSheetEditView();
-    // WorkSheetController wsControl = new WorkSheetController(model, editTest);
-    // wsControl.render();
+    //ISpreadSheetView edit10 = new SpreadSheetEditView();
+    //WorkSheetController wsEdit10 = new WorkSheetController(model, edit10);
+    //wsEdit10.render();
 
-    WorkSheetProvider ws2 = new WorkSheetProvider(model);
-    EditableGUIView testView = new EditableGUIView(ws2);
-    ISpreadSheetView providerView = new NewEditableGUIView(testView);
-    WorkSheetController wsControl = new WorkSheetController(ws2, providerView);
-    wsControl.render();
+    //WorkSheetProvider ws2 = new WorkSheetProvider(model);
+    //EditableGUIView testView = new EditableGUIView(ws2);
+    //ISpreadSheetView providerView = new NewEditableGUIView(testView);
+    //WorkSheetController wsControl = new WorkSheetController(ws2, providerView);
+    //wsControl.render();
 
     Readable in = new StringReader("");
     for (String s : args) {
@@ -96,6 +91,12 @@ public class BeyondGood {
         ISpreadSheetView edit = new SpreadSheetEditView();
         WorkSheetController wsEdit = new WorkSheetController(ws, edit);
         wsEdit.render();
+      } else if (args[2].equals("-provider")) {
+        WorkSheetProvider wsp = new WorkSheetProvider(ws);
+        EditableGUIView pEditView = new EditableGUIView(wsp);
+        ISpreadSheetView newEditView = new NewEditableGUIView(pEditView);
+        WorkSheetController wsPControl = new WorkSheetController(wsp, newEditView);
+        wsPControl.render();
       } else {
         System.out.println("Improperly formatted Command Line");
       }
@@ -107,6 +108,12 @@ public class BeyondGood {
       ISpreadSheetView edit = new SpreadSheetEditView();
       WorkSheetController wsEdit = new WorkSheetController(ws, edit);
       wsEdit.render();
+    } else if (args[0].equals("-provider")) {
+      WorkSheetProvider wsp = new WorkSheetProvider(ws);
+      EditableGUIView pEditView = new EditableGUIView(wsp);
+      ISpreadSheetView newEditView = new NewEditableGUIView(pEditView);
+      WorkSheetController wsPControl = new WorkSheetController(wsp, newEditView);
+      wsPControl.render();
     } else {
       System.out.println("Improperly formatted Command Line");
     }

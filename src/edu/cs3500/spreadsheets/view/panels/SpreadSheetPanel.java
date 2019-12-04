@@ -89,7 +89,7 @@ public class SpreadSheetPanel extends JPanel {
    * Sends information upwards about which cell is being selected.
    */
   public String getCellName(int x, int y) {
-    if (((y + this.vertical) / 20) <= 2) {
+    if ((y / 20) <= 2 || (x / 80) <= 0) {
       return null;
     }
     return Coord.colIndexToName(((x + this.horizontal) / 80)) + (((y + this.vertical) / 20) - 2);

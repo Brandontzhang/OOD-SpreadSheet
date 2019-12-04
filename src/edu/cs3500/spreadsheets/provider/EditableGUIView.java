@@ -1,6 +1,5 @@
-package edu.cs3500.spreadsheets.view.provider;
+package edu.cs3500.spreadsheets.provider;
 
-import edu.cs3500.spreadsheets.model.IWorksheetProvider;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -48,7 +47,7 @@ public class EditableGUIView extends JFrame implements SheetView, ChangeListener
     this.panel = new SheetPanel(model);
 
     this.constraints = new GridBagConstraints();
-    this.cancelButton = new JButton("Reject"); // Cancel
+    this.cancelButton = new JButton("Cancel");
     this.confirmButton = new JButton("Confirm");
     this.saveButton = new JButton("Save");
     this.loadButton = new JButton("Load");

@@ -1,3 +1,20 @@
+Provider View
+- We were able to get most of the functionalities of the spreadsheet working
+- Cells can be selected and edited
+	- when a cell is selected, its contents (not evaluated, are displayed in the text box)
+		- error in that sometimes you would need to click on a blank cell to "clear" the box before selecting another one with content
+	- Clicking on confirm updates the cell content and displays it
+	- functions ADD, PRODUCT, SUB, <, and APPEND
+	- selected cell doesn't stay highlighted (JTable/view function we couldn't change), but stays "selected"
+- cyclic references, (A1 holds B1, B1 holds A1)
+- self references (A1 holds A1)
+- Selecting cancel when editing a cell reverts the text box content back to its original content
+
+How to use provider view:
+- You need to first select a cell. It is highlighted black when you first select it, but once you select the text box to input, it removes the highlight. It is still selected however, and changes made with the confirm button will go to the last highlighted cell. 
+- save and load weren't implemented since we had not done that in our own view, currently just two blank buttons that don't do anything if clicked on. 
+
+
 Model Design Changes
 - interface ISpreadSheet was added as a read-only interface for the model
 - interface for spreadsheet added new function String getUnprocessedData(String c);

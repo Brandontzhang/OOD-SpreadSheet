@@ -1,14 +1,14 @@
-package edu.cs3500.spreadsheets.view.provider;
+package edu.cs3500.spreadsheets.provider;
 
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.EventListener;
 import java.util.List;
 
+import edu.cs3500.spreadsheets.model.Coord;
 import edu.cs3500.spreadsheets.view.ISpreadSheetView;
 
 /**
- * Class adapts the editable gui view provided to fit the original ISpreadSheetView interface
+ * Class adapts the editable gui view provided to fit the original ISpreadSheetView interface.
  */
 public class NewEditableGUIView implements ISpreadSheetView, SheetView {
   private EditableGUIView egv;
@@ -19,7 +19,7 @@ public class NewEditableGUIView implements ISpreadSheetView, SheetView {
 
   @Override
   public void getDisplayData(List<List<String>> data) {
-
+    return;
   }
 
   @Override
@@ -39,7 +39,7 @@ public class NewEditableGUIView implements ISpreadSheetView, SheetView {
 
   @Override
   public String getCoordCell(int x, int y) {
-    return null;
+    return Coord.colIndexToName(this.egv.getCol() + 1) + (this.egv.getRow() + 1);
   }
 
   @Override
@@ -49,7 +49,7 @@ public class NewEditableGUIView implements ISpreadSheetView, SheetView {
 
   @Override
   public void selectCell(int x, int y) {
-
+    return;
   }
 
   @Override
@@ -59,6 +59,6 @@ public class NewEditableGUIView implements ISpreadSheetView, SheetView {
 
   @Override
   public void updateText(String text) {
-
+    this.egv.getTextBar().setText(text);
   }
 }

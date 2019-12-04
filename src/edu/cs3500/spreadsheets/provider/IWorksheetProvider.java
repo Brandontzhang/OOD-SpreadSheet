@@ -1,7 +1,11 @@
-package edu.cs3500.spreadsheets.model;
+package edu.cs3500.spreadsheets.provider;
 
 import java.util.HashMap;
 import java.util.List;
+
+import edu.cs3500.spreadsheets.model.Cell;
+import edu.cs3500.spreadsheets.model.Coord;
+import edu.cs3500.spreadsheets.model.Value;
 
 /**
  * Interface for a Worksheet model. Supports operations for editing a worksheet, getting all the

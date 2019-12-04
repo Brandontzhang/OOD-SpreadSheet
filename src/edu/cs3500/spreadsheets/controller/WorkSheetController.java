@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import edu.cs3500.spreadsheets.model.ISpreadSheet;
-import edu.cs3500.spreadsheets.model.IWorkSheet;
 import edu.cs3500.spreadsheets.view.ISpreadSheetView;
 
 /**
@@ -55,6 +54,7 @@ public class WorkSheetController implements ActionListener, MouseListener {
     } else {
       // select the cell in the controller
       this.selected = coord;
+      System.out.println(selected);
       // select the cell in the view
       this.view.selectCell(p.x, p.y);
       // sets the text to match the contents of the cell
@@ -94,8 +94,16 @@ public class WorkSheetController implements ActionListener, MouseListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     switch ((e.getActionCommand())) {
+      case "Enter":
+        // change the contents of the current selected cell in the model to the input in text field
+        this.model.updateCell(this.selected, this.view.getText());
+        this.view.updateView(this.model.getProcessedDataSheet());
+        break;
       case "Confirm":
         // change the contents of the current selected cell in the model to the input in text field
+        // used for provider view since the way cells are selected are a bit different
+        // have to find a way to update which cell is selected
+        this.selected = this.view.getCoordCell(0,0);
         this.model.updateCell(this.selected, this.view.getText());
         this.view.updateView(this.model.getProcessedDataSheet());
         break;
@@ -103,14 +111,24 @@ public class WorkSheetController implements ActionListener, MouseListener {
         // revert the text box back to the old stuff
         this.view.updateText(this.model.getUnprocessedData(this.selected));
         break;
+      case "Cancel":
+        // revert the text box back to the old stuff
+        // have to find a way to update which cell is selected
+        this.selected = this.view.getCoordCell(0,0);
+        this.view.updateText(this.model.getUnprocessedData(this.selected));
+        break;
       case "Save":
         break;
       case "Load":
         break;
+      default:
+        break;
     }
   }
 
-  // Renders the view the controller is given
+  /**
+   * Renders the view in the controller.
+   */
   public void render() {
     try {
       this.view.render();

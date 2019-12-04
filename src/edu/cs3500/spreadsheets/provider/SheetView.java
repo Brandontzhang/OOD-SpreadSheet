@@ -1,13 +1,11 @@
-package edu.cs3500.spreadsheets.view.provider;
+package edu.cs3500.spreadsheets.provider;
 
 import java.awt.event.ActionListener;
-
-import edu.cs3500.spreadsheets.view.ISpreadSheetView;
 
 /**
  * Interface for any Spreadsheet view implementation.
  */
-public interface SheetView /*extends ISpreadSheetView */{
+public interface SheetView {
 
   /**
    * All spreadsheets must be able to render themselves in some way.

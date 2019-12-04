@@ -1,9 +1,10 @@
-package edu.cs3500.spreadsheets.view.provider;
+package edu.cs3500.spreadsheets.provider;
 
 import edu.cs3500.spreadsheets.model.Cell;
+import edu.cs3500.spreadsheets.model.CellTextifier;
 import edu.cs3500.spreadsheets.model.Coord;
-import edu.cs3500.spreadsheets.model.IWorksheetProvider;
 import edu.cs3500.spreadsheets.model.Value;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -50,9 +51,8 @@ public class SheetPanel extends JPanel {
         return Math.max(100, viewableRows);
       }
 
-      public String getValueAt(int row, int col) {
-        //return model.evaluateCoord(new Coord(col + 1, row + 1));
-        return "hello";
+      public Value getValueAt(int row, int col) {
+        return model.evaluateCoord(new Coord(col + 1, row + 1));
       }
 
       public Class<?> getColumnClass(int i) {
@@ -101,9 +101,6 @@ public class SheetPanel extends JPanel {
           component.setFont(component.getFont().deriveFont(Font.PLAIN));
           return component;
         });
-
-    System.out.println(this.model.getCellAt(new Coord(1,1)).getUnevalContent());
-    System.out.println(this.table.getValueAt(0, 0));
     this.scrollPane = new JScrollPane(this.table);
     this.scrollPane.setRowHeaderView(headerTable);
   }
@@ -172,9 +169,7 @@ public class SheetPanel extends JPanel {
       if (table.getSelectedColumn() >= 0 && table.getSelectedRow() >= 0) {
         Cell c = model.getCellAt(new Coord(table.getSelectedColumn() + 1,
             table.getSelectedRow() + 1));
-        if (c != null) {
-          listener.setText(c.getUnevalContent());
-        }
+        listener.setText(c.accept(new CellTextifier()));
       }
     });
   }

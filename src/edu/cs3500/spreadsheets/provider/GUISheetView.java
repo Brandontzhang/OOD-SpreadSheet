@@ -1,6 +1,5 @@
-package edu.cs3500.spreadsheets.view.provider;
+package edu.cs3500.spreadsheets.provider;
 
-import edu.cs3500.spreadsheets.model.IWorksheetProvider;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;

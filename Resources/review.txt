@@ -1,0 +1,14 @@
+Self Review
+Brandon Zhang, Joshua Goldsmith
+	
+	This homework assignment was very useful in understanding the need to decouple the model, view and controller. Having to use another groups code, while also making sure your own code is understandable and adaptable, was quite a challenge. As each assignment was built on top of the previous one, a lot of bugs had to be fixed along the way, along with the new ones that had to be fixed with the new parts that had to be implemented.
+ 
+	We learned a lot both from the providers and the customers. The customers we had caught a few bugs that were missed, a big one being that the view we had implemented didn’t work quite as well on Windows (we worked on a mac). Another bug was that the cells displaying the column numbers could be selected, which caused a bug. Having this feedback was quite useful, but it did come a bit late, getting feedback on a bug the night before the assignment was due (doesn’t help that it’s finals week), didn’t really give enough time to give proper feedback and updates. 
+
+	The provider code we received was quite helpful. We were able to see a different implementation using a JTable instead. The Jtable implementation seemed cleaner and would have gotten rid of the need of mouse listeners in our controller. While there were aspects of the code that were difficult to determine, implementing the functions in the interface provided worked well, and there was only a bit more debugging needed with some aspects of the code that weren’t clearly specified. The main thing to change would be from a 2D arraylist of cells to a hashmap, as our providers had, containing cells that had content, as going through the arraylist for all the cells seems less optimal than using a hashmap. 
+
+	Another aspect of the provider code which piqued our interest was the Value and Formula classes. While we couldn't see the implementation, the idea of having these classes to clean up the processing of cells behind the scenes seemed like a good one. 
+
+The code provided by the providers worked well, and their documentation was decent so there wasn’t a need to ask them for anything else once we received their code. 
+
+	As for things that could have been done differently in general, the interface of the model could be cleaned up, and several errors could be fixed. Cyclic errors aren't detected with 100% accuracy. For example, if A1 references B1 and B1 references A1, that is caught, but not when A1 -> B1, B1 -> C1, C1 -> A1. Furthermore, we would separate the display of the view from the actual contents of the cell. Whenever errors occur, the strings of error messages are input into the cell themselves. While this displays correctly, it does not display the faulty content input into the cell, which is lost. 

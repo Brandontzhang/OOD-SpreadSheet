@@ -44,8 +44,8 @@ public class SpreadSheetEditView extends JFrame implements ISpreadSheetView {
     buttonPanel.setLayout(new FlowLayout());
     this.add(buttonPanel, BorderLayout.SOUTH);
 
-    confirmButton = new JButton("Confirm");
-    confirmButton.setActionCommand("Confirm");
+    confirmButton = new JButton("Enter");
+    confirmButton.setActionCommand("Enter");
     buttonPanel.add(confirmButton);
 
     rejectButton = new JButton("Reject");

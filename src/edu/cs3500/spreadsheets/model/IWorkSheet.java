@@ -15,4 +15,7 @@ public interface IWorkSheet extends ISpreadSheet {
 
   // Returns a hashmap of all cells
   HashMap<Coord, Cell> getAllCells();
+
+  // Returns a hashmap of all cells with content processed
+  HashMap<Coord, String> getAllProcessedCells();
 }

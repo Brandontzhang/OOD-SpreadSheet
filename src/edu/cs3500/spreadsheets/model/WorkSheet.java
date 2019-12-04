@@ -95,8 +95,21 @@ public class WorkSheet implements IWorkSheet {
       for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
         if (this.spreadSheet.get(i).get(j).getUnevalContent() != null) {
           Coord newCoord = new Coord(i, j);
-          System.out.println(newCoord.toString());
           cellMap.put(newCoord, (Cell) this.spreadSheet.get(i).get(j));
+        }
+      }
+    }
+    return cellMap;
+  }
+
+  @Override
+  public HashMap<Coord, String> getAllProcessedCells() {
+    HashMap<Coord, String> cellMap = new HashMap<>();
+    for (int i = 0; i < this.spreadSheet.size(); i++) {
+      for (int j = 0; j < this.spreadSheet.get(i).size(); j++) {
+        if (this.spreadSheet.get(i).get(j).getUnevalContent() != null) {
+          Coord newCoord = new Coord(i, j);
+          cellMap.put(newCoord,  this.getCell(newCoord.toString()));
         }
       }
     }
